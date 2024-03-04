@@ -23,9 +23,9 @@ import FeaturedImageGallery from "../../components/featuredImageGallery";
 import Footer from "../../components/footer";
 import AnimatedCounter from  "../../components/counter";
 import WhatsApp from "../../components/whatsapp";
-import Banner1 from "../../public/img/4.jpg"
-import Banner2 from "../../public/img/5.png"
-import Banner3 from "../../public/img/3.jpg"
+import Banner1 from "../../public/img/banner1.png"
+import Banner2 from "../../public/img/banner2.png"
+import Banner3 from "../../public/img/banner3.jpg"
 
 import { NewsContext } from "../../context/NewsContext";
 import { useContext } from "react";
@@ -67,7 +67,7 @@ const [ref, inView] = useInView()
       {/* navbar */}
       <Navbar isGray={false} />
       {/* heading */}
-      <div className="bg-gray-300 z-20 w-full h-screen relative m-0 p-0 overflow-x-hidden">
+      <div className="bg-gray-200 z-20 w-full h-screen relative m-0 p-0 overflow-x-hidden">
       <Swiper 
         centeredSlides={true}
         autoplay={{
@@ -81,18 +81,18 @@ const [ref, inView] = useInView()
         modules={[Autoplay, Pagination, Navigation]} className="mySwiper">
         <SwiperSlide>
           <div className="w-full h-full relative">
-            <Image src={Banner1} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-contain" />
+            <Image id="bannerImage" src={Banner1} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
           </div>
           
         </SwiperSlide>
         <SwiperSlide>
         <div className="w-full h-full relative">
-            <Image src={Banner2} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-contain" />
+            <Image id="bannerImage" src={Banner2} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
         <div className="w-full h-full relative">
-            <Image src={Banner3} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-contain" />
+            <Image id="bannerImage" src={Banner3} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
           </div>
         </SwiperSlide>
       </Swiper>
@@ -107,22 +107,22 @@ const [ref, inView] = useInView()
           viewport={{ once: true, amount: 0.8 }}
           variants={cardVariants}
           className="flex-[0.50] flex flex-col space-y-3">
-            <h1 className="text-6xl font-bold text-gray-50 ">tentang <span className="text-[#ff7f00]">perpenka</span></h1>
+            <h1 className="text-6xl font-bold text-gray-50 ">Tentang <span className="text-[#ff7f00]">PERPENKA</span></h1>
             <p className=" text-gray-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolores quis, laborum aperiam ducimus possimus! Recusandae error dolorem quae esse officiis molestias explicabo voluptatum laborum. Tempore eaque labore molestiae corporis, qui neque, non, nulla provident voluptate rerum quas beatae eum?</p>
             <div className="flex flex-col space-y-4">
               <div className="w-full h-1 rounded bg-gray-50 opacity-75"></div>
               <div className="flex items-center space-x-8">
                 <div className="flex flex-col items-center space-y-2">
-                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={5000} /><span>+</span></h1>
-                  <p className="sm:text-xs lg:text-md font-light text-gray-50">anggota</p>
+                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={6000} /><span>+</span></h1>
+                  <p className="text-xs md:text-md font-light text-gray-50">anggota</p>
                 </div>
                 <div className="flex flex-col items-center space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={20} /><span>+</span></h1>
-                  <p className=" sm:text-xs lg:text-md font-light text-gray-50">acara tahunan</p>
+                  <p className=" text-xs md:text-md font-light text-gray-50">acara tahunan</p>
                 </div>
                 <div className="flex flex-col items-center space-y-2">
-                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={50} /><span>+</span></h1>
-                  <p className="sm:text-xs lg:text-md font-light text-gray-50">kota/kabupaten</p>
+                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={14} /><span></span></h1>
+                  <p className="text-xs md:text-md font-light text-gray-50">daerah&pusat</p>
                 </div>
               </div>
 

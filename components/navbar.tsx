@@ -1,21 +1,20 @@
 "use client"
 import React, {useEffect, useState} from 'react'
 import Image from 'next/image';
-import Logo from "../public/img/logofix.png"
+import Lambang from "../public/img/logofix.png"
+import Logo from "../public/img/logoBaru.jpg"
 import "../src/app/globals.css";
 
 import { LuMenu } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
-import { CiFacebook } from "react-icons/ci";
 import { BsWhatsapp } from 'react-icons/bs';
 import { FiHome,FiUsers, } from "react-icons/fi";
 import { TbNews } from "react-icons/tb";
 import { IoImagesOutline } from "react-icons/io5";
-import { FaArrowRight } from "react-icons/fa6";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 import { motion, useScroll } from "framer-motion";
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Input, Radio, RadioGroup, Stack, useDisclosure } from '@chakra-ui/react'
+import { useDisclosure } from '@chakra-ui/react';
 
 
 type UseColorProps = {
@@ -63,9 +62,14 @@ function Navbar({isGray}: UseColorProps) {
   return (
     <motion.div  className={`  fixed w-full flex items-start flex-col z-40 ease-in-out`}>
       <nav className={`${showNavbar===true? 'bg-white shadow-lg text-gray-600 h-[90px] ease-in duration-300' : isGray===true?'bg-transparent text-gray-600 text-lg h-[82px] ease-out duration-300' : 'bg-transparent text-white text-lg h-[82px] ease-out duration-300'} w-full px-10 flex items-center justify-between`}>
+          <div className="flex items-center justify-center space-x-3">
         <a href='/' className="text-xl font-bold h-12 w-12">
-          <Image src={Logo} alt="logo" className={`w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
+          <Image src={Lambang} alt="logo" className={`w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
         </a>
+        <a href='/' className="text-xl font-bold h-12 w-12">
+          <Image src={Logo} alt="logo" className={`rounded-sm w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
+        </a>
+          </div>
         <div className="hidden lg:flex items-center justify-end space-x-5">
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
             <FiHome className={`text-lg ${showNavbar===false? 'hidden' : 'inline-flex'}`} />
@@ -98,8 +102,8 @@ function Navbar({isGray}: UseColorProps) {
         {isOpen == true? (
           <div className='z-50 text-gray-600 flex items-center justify-center lg:hidden absolute top-0 left-0 bg-white w-screen h-[60vh] transition-all ease-in-out duration-500'>
             <div className='bg-white w-[85%] h-[95%] flex flex-col pb-3 space-y-4'>
-              <div className='w-full flex justify-end'>
-                <MdClose className="text-xl" onClick={onClose} />
+              <div className='w-full flex justify-end mt-3 cursor-pointer'>
+                <MdClose className="text-2xl" onClick={onClose} />
               </div>
               {/* navigate */}
               <div className="flex flex-col space-y-2 flex-1">

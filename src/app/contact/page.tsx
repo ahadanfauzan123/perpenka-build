@@ -1,7 +1,6 @@
 "use client"
 import React, {useState, ChangeEvent} from 'react'
 import Navbar from '../../../components/navbar'
-import { Input, Text } from '@chakra-ui/react'
 import Footer from '../../../components/footer';
 
 function Contact() {
@@ -19,8 +18,8 @@ function Contact() {
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
                         <h1 className='text-gray-600 text-3xl font-extrabold'>CONTACT</h1>
                   </div>
-                  <div className='w-full flex-0.4 bg-gray-200 py-12 flex items-start justify-center'>
-                        <a href="" className='bg-blue-400 rounded-3xl font-semibold text-2xl px-12 py-2 text-white'>Daftar Sekarang</a>
+                  <div className='w-full flex-[0.2] bg-gray-200 flex items-center justify-center'>
+                        <a href="https://forms.gle/5mg5h1UgGSP9xzgw5" className='cursor-pointer bg-gradient-to-tr from-blue-500 to-purple-600 hover:ring-2 hover:ring-gray-200 w-full h-full font-medium text-2xl flex items-center justify-center text-white'>Daftar Sekarang</a>
                   </div>
             </div>
             <Footer />

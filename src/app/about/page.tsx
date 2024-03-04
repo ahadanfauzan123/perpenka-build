@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef, useState } from 'react';
+import logoBaru from "../../../public/img/logoBaru.jpg"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -34,7 +35,7 @@ export default function About() {
                   <div className='w-full flex flex-col space-y-8'>
                         {/* sejarah */}
                         <div className='w-full flex flex-col space-y-3'>
-                              <div className='flex items-center space-x-3 bg-gray-200 w-[160px]'>
+                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[300px]'>
                                     <div className='w-1 h-[40px] rounded bg-orange-300'></div>
                                     <h1 className='text-gray-600 text-[24px] font-extrabold'>SEJARAH</h1>
                               </div>
@@ -46,7 +47,7 @@ export default function About() {
                         </div>
                         {/* visi */}
                         <div className='w-full flex flex-col space-y-3'>
-                              <div className='flex items-center space-x-3 bg-gray-200 w-[100px]'>
+                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[300px]'>
                                     <div className='w-1 h-[40px] rounded bg-orange-300'></div>
                                     <h1 className='text-gray-600 text-[24px] font-extrabold'>VISI</h1>
                               </div>
@@ -61,7 +62,7 @@ export default function About() {
                         </div>
                         {/* misi */}
                         <div className='w-full flex flex-col space-y-3'>
-                              <div className='flex items-center space-x-3 bg-gray-200 w-[100px]'>
+                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[300px]'>
                                     <div className='w-1 h-[40px] rounded bg-orange-300'></div>
                                     <h1 className='text-gray-600 text-[24px] font-extrabold'>MISI</h1>
                               </div>
@@ -74,9 +75,61 @@ export default function About() {
                         </p>
                               </div>
                         </div>
+                        {/* misi */}
+                        <div className='w-full flex flex-col space-y-3'>
+                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:max-w-[300px]'>
+                                    <div className='w-1 h-[40px] rounded bg-orange-300'></div>
+                                    <h1 className='text-gray-600 text-[24px] font-extrabold'>ARTI LAMBANG</h1>
+                              </div>
+                              <div className='w-full flex flex-col space-y-4 items-center'>
+                                <div className='w-[200px] h-[200px] bg-gray-200'>
+                                    <Image alt="logo" src={logoBaru} className='w-full h-full object-cover' />
+                                </div>
+                                <div className='w-full'>
+                                    <div className='flex items-center space-x-3'>
+                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                        <h1 className='text-gray-600 text-xl font-extrabold'>Bulat</h1>
+                                    </div>
+                                    <p className='ml-3 text-justify text-lg font-light'>
+                                        Memberikan kesan yang dinamis, bergerak <br />
+                                        Tidak terputus, Merajut Generasi Insan Kereta Api <br />
+                                        PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
+                                    </p>
+                                </div>
+                                <div className='w-full'>
+                                    <div className='flex items-center space-x-3'>
+                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                        <h1 className='text-gray-600 text-xl font-extrabold'>Biru</h1>
+                                    </div>
+                                    <p className='ml-3 text-justify text-lg font-light'>
+                                        Membawa kesan kreatif, bahagia, kebebasan, dan kepercayaan diri <br />
+                                    </p>
+                                </div>
+                                <div className='w-full'>
+                                    <div className='flex items-center space-x-3'>
+                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                        <h1 className='text-gray-600 text-xl font-extrabold'>Bulat</h1>
+                                    </div>
+                                    <p className='ml-3 text-justify text-lg font-light'>
+                                        Memberikan kesan yang dinamis, bergerak <br />
+                                        Tidak terputus, Merajut Generasi Insan Kereta Api <br />
+                                        PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
+                                    </p>
+                                </div>
+                                <div className='w-full'>
+                                    <div className='flex items-center space-x-3'>
+                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                        <h1 className='text-gray-600 text-xl font-extrabold'>Gambar Kereta Api Cepat</h1>
+                                    </div>
+                                    <p className='ml-3 text-justify text-lg font-light'>
+                                        PERPENKA berpartisipasi aktif dalam pengembangan perkeretaapian dan berkolaborasi dalam keluarga besar kereta api yang selalu bergerak Dinamis dan Inovatif
+                                    </p>
+                                </div>
+                              </div>
+                        </div>
                         {/* struktur */}
                         <div className='min-h-screen w-full '>
-                              <div className='flex items-center space-x-3 bg-gray-200 w-[180px]'>
+                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[180px]'>
                                     <div className='w-1 h-[40px] rounded bg-orange-300'></div>
                                     <h1 className='text-gray-600 text-[24px] font-extrabold'>STRUKTUR</h1>
                               </div>
