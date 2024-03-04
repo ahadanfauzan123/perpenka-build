@@ -108,7 +108,7 @@ export default function About() {
                                 <div className='w-full'>
                                     <div className='flex items-center space-x-3'>
                                         <div className='w-1 h-[30px] rounded bg-blue-400'></div>
-                                        <h1 className='text-gray-600 text-xl font-extrabold'>Bulat</h1>
+                                        <h1 className='text-gray-600 text-xl font-extrabold'>Orange</h1>
                                     </div>
                                     <p className='ml-3 text-justify text-lg font-light'>
                                         Memberikan kesan yang dinamis, bergerak <br />

@@ -26,6 +26,7 @@ import WhatsApp from "../../components/whatsapp";
 import Banner1 from "../../public/img/banner1.png"
 import Banner2 from "../../public/img/banner2.png"
 import Banner3 from "../../public/img/banner3.jpg"
+import Logo from "../../public/img/logoBaru.jpg"
 
 import { NewsContext } from "../../context/NewsContext";
 import { useContext } from "react";
@@ -128,7 +129,9 @@ const [ref, inView] = useInView()
 
             </div>
           </motion.div>
-          <div className="bg-gray-400 rounded-xl w-[240px] h-[240px]"></div>
+          <div className="bg-gray-400 rounded-xl w-[240px] h-[240px]">
+            <Image alt="logo" src={Logo} width={240} height={240} className="object-cover w-full h-full rounded-xl" />
+          </div>
         </div>
       </div>
       {/* section 3 */}
