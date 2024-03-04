@@ -114,15 +114,15 @@ const [ref, inView] = useInView()
               <div className="flex items-center space-x-8">
                 <div className="flex flex-col items-center space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={5000} /><span>+</span></h1>
-                  <p className="text-md font-light text-gray-50">peserta</p>
+                  <p className="sm:text-xs lg:text-md font-light text-gray-50">anggota</p>
                 </div>
                 <div className="flex flex-col items-center space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={20} /><span>+</span></h1>
-                  <p className="text-md font-light text-gray-50">acara tahunan</p>
+                  <p className=" sm:text-xs lg:text-md font-light text-gray-50">acara tahunan</p>
                 </div>
                 <div className="flex flex-col items-center space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={50} /><span>+</span></h1>
-                  <p className="text-md font-light text-gray-50">kota/kabupaten</p>
+                  <p className="sm:text-xs lg:text-md font-light text-gray-50">kota/kabupaten</p>
                 </div>
               </div>
 
