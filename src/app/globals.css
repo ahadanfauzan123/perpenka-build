@@ -23,9 +23,9 @@
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
 } */
-body {
+/* body {
   @apply font-montserrat overflow-x-hidden;
-}
+} */
 /* body::-webkit-scrollbar {
   display: none;
 }
@@ -89,7 +89,9 @@ a:hover > .arrow {
   @apply bg-orange-400 border border-orange-400 ;
   
 } */
-
+/* body {
+  overflow-x: hidden;
+}
  .swiper {
   width: 100%;
   height: 100%;
@@ -100,7 +102,6 @@ a:hover > .arrow {
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
    display: flex;
   justify-content: center;
   align-items: center;
@@ -137,4 +138,4 @@ button {
   &:active {
     background-color: #4289e6;
   }
-}
+} */

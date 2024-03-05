@@ -32,10 +32,11 @@ function Footer() {
           </a>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-gray-800">
-              Jalan Laswi nomor 30<br/>  
+              Jl. Laswi No. 30<br/>  
               Kelurahan Kacapiring<br/>  
               Kecamatan Batunuggal<br/>  
-              Bandung Kode Pos 40271<br/>  
+              Kota Bandung 40271<br/>  
+              Provinsi Jawa Barat<br/>  
             </p>
           </div>
         </div>
@@ -98,8 +99,6 @@ function Footer() {
             </a>
           </div>
           <p className="mt-4 text-sm text-gray-500">
-            Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-            spare ribs salami.
           </p>
         </div>
       </div>

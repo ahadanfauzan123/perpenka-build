@@ -19,7 +19,7 @@ function Contact() {
                         <h1 className='text-gray-600 text-3xl font-extrabold'>CONTACT</h1>
                   </div>
                   <div className='w-full flex-[0.2] bg-gray-200 flex items-center justify-center'>
-                        <a href="https://forms.gle/5mg5h1UgGSP9xzgw5" className='cursor-pointer bg-gradient-to-tr from-blue-500 to-purple-600 hover:ring-2 hover:ring-gray-200 w-full h-full font-medium text-2xl flex items-center justify-center text-white'>Daftar Sekarang</a>
+                        <a href="https://forms.gle/5mg5h1UgGSP9xzgw5" className='cursor-pointer bg-gradient-to-tr from-blue-500 to-purple-700 hover:ring-2 hover:ring-gray-200 w-full h-full font-light text-2xl flex items-center justify-center text-white'>Daftar Sekarang</a>
                   </div>
             </div>
             <Footer />

@@ -7,6 +7,7 @@ import Image from 'next/image';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Logo from "../../../public/img/logo.jpg";
+import Lambang from "../../../public/img/logofix.png";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -25,14 +26,19 @@ export default function About() {
   return (
       <div className="bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600">
             <Navbar isGray={true} />
-            <div className='w-[80vw] mx-auto flex flex-col space-y-12 mt-[110px]'>
+            <div className='w-full mx-auto flex flex-col space-y-12 mt-[110px]'>
+                <div className='w-[80vw] mx-auto flex flex-col space-y-12'>
                   {/* heading */}
                   <div className='flex items-center space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
                         <h1 className='text-gray-600 text-3xl font-extrabold'>PROFILE</h1>
                   </div>
+
+                </div>
                   {/* body */}
-                  <div className='w-full flex flex-col space-y-8'>
+                  <div className='w-full flex flex-col space-y-10'>
+
+                    <div className=' w-[80vw] mx-auto flex flex-col space-y-12 '>
                         {/* sejarah */}
                         <div className='w-full flex flex-col space-y-3'>
                               <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[300px]'>
@@ -41,8 +47,7 @@ export default function About() {
                               </div>
                               <div className='w-full'>
                                     <p className='text-justify text-lg font-light'>
-                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsa atque distinctio rem illo, et aspernatur repellat eum itaque vero voluptatibus, quia voluptas eveniet ut inventore doloribus molestias nostrum deserunt ipsam laborum! Repellendus!
-                                    </p>
+                                    PERPENKA merupakan singkatan, dimana pada awalnya adalah singkatan dari Persatuan Pensiunan Karyawan Kereta Api, karena nama organisasi ini tidak sesuai dengan aturan yang ditentukan pemerintah, maka pada tahun 2014 setelah Kongres XI Yogyakarta memilih Ketua Umum Definitif, yaitu Bapak Drs. H. Badar Zaenie, Singkatan PERPENKA diubah menjadi Perkumpulan Pensiunan Karyawan Kereta Api.</p>
                               </div>
                         </div>
                         {/* visi */}
@@ -75,60 +80,110 @@ export default function About() {
                         </p>
                               </div>
                         </div>
-                        {/* misi */}
-                        <div className='w-full flex flex-col space-y-3'>
-                              <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:max-w-[300px]'>
-                                    <div className='w-1 h-[40px] rounded bg-orange-300'></div>
-                                    <h1 className='text-gray-600 text-[24px] font-extrabold'>ARTI LAMBANG</h1>
-                              </div>
-                              <div className='w-full flex flex-col space-y-4 items-center'>
-                                <div className='w-[200px] h-[200px] bg-gray-200'>
-                                    <Image alt="logo" src={logoBaru} className='w-full h-full object-cover' />
+
+                    </div>
+                    {/* lambang dan logo */}
+                    <div className="w-full flex flex-col">
+                        {/* arti lambang */}
+                        <div className="w-screen min-h-screen bg-gradient-to-tr flex flex-col space-y-6 py-10 from-orange-400 to-orange-500 ">
+                            <div className='w-[80%] mx-auto flex items-center justify-between space-y-3'>
+                                <Image alt="lambang" src={Lambang} width={250} height={250}  className='w-[240px] h-[240px]' />
+                                <div className='flex items-center space-x-3 bg-gray-300 bg-opacity-65 sm:w-full lg:max-w-[300px]'>
+                                        <div className='w-1 h-[40px] rounded bg-blue-600'></div>
+                                        <h1 className='text-gray-600 text-[24px] font-extrabold'>ARTI LAMBANG</h1>
                                 </div>
-                                <div className='w-full'>
-                                    <div className='flex items-center space-x-3'>
-                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
-                                        <h1 className='text-gray-600 text-xl font-extrabold'>Bulat</h1>
+                            </div>
+                            {/* body */}
+                            <div className='w-[80%] mx-auto flex flex-col'>
+                                {/* up */}
+                                <div className='flex items-center justify-center w-full border-b-2 border-gray-600'>
+                                    {/* left */}
+                                    <div className='px-4 flex flex-[0.5] items-start justify-center border-r-2 py-4 border-gray-600'>
+                                        <p className='text-align text-gray-100'>Lingkaran berwarna dasar abu-abu dengan tulisan PERKUMPULAN PENSIUNAN KARYAWAN KERETA API’ yang melingkar, melambangkan sebagai wadah berkumpul anggotanya yang terdiri dari para pensiunan karyawan kereta api yang berkeinginan hidup tenang, seimbang dan dinamis</p>
                                     </div>
-                                    <p className='ml-3 text-justify text-lg font-light'>
-                                        Memberikan kesan yang dinamis, bergerak <br />
-                                        Tidak terputus, Merajut Generasi Insan Kereta Api <br />
-                                        PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
-                                    </p>
+                                    {/* right */}
+                                    <div className=' px-4 flex flex-[0.5] items-start justify-center border-l-2 py-4 border-gray-600'>
+                                        <p className='text-align text-gray-100'>
+                                        Lingkaran berwarna dasar hijau dengan tulisan ‘Perpenka’, yang melintang ditengahnya, melambangkan bahwa Perpenka dapat menjadi kebanggaan para anggotanya, yang dapat saling membantu, berkomunikasi dan mampu memberikan suasana  gembira
+
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className='w-full'>
-                                    <div className='flex items-center space-x-3'>
-                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
-                                        <h1 className='text-gray-600 text-xl font-extrabold'>Biru</h1>
+                                {/* down */}
+                                <div className='flex items-center justify-center w-full'>
+                                    {/* left */}
+                                    <div className='px-4 flex flex-[0.5] items-start justify-center border-r-2 py-4 border-gray-600'>
+                                        <p className='text-align text-gray-100'>Garis tebal setengah lingkaran berwarna kuning melambangkan bahwa melalui wadah Perpenka, para pensiunan dapat saling memberikan rasa kehangatan dan rasa kebahagiaan
+</p>
                                     </div>
-                                    <p className='ml-3 text-justify text-lg font-light'>
-                                        Membawa kesan kreatif, bahagia, kebebasan, dan kepercayaan diri <br />
-                                    </p>
+                                    {/* right */}
+                                    <div className=' px-4 flex flex-[0.5] items-start justify-center border-l-2 py-4 border-gray-600'>
+                                        <p className='text-align text-gray-100'>
+                                        Rangkaian 7 butir Padi dan 3 buah Kapas dan angka ‘67’ di bagian bawah lingkaran, melambangkan bahwa Perpenka telah berdiri sejak tanggal 7 Maret 1967, yang merupakan cita-cita guna meningkatkan kesejahteraan para pensiunan karyawan kereta api yang berlandaskan Pancasila
+</p>
+                                    </div>
                                 </div>
-                                <div className='w-full'>
-                                    <div className='flex items-center space-x-3'>
-                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
-                                        <h1 className='text-gray-600 text-xl font-extrabold'>Orange</h1>
-                                    </div>
-                                    <p className='ml-3 text-justify text-lg font-light'>
-                                        Memberikan kesan yang dinamis, bergerak <br />
-                                        Tidak terputus, Merajut Generasi Insan Kereta Api <br />
-                                        PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
-                                    </p>
+
+                            </div>
+
+                        </div>
+                        {/* arti logo */}
+                        <div className='w-full flex flex-col space-y-3 py-8 bg-blue-900'>
+                            <div className='w-[80%] mx-auto'>
+                                <div className='flex items-center space-x-3 bg-gray-300 bg-opacity-65 sm:w-full lg:max-w-[300px]'>
+                                        <div className='w-1 h-[40px] rounded bg-blue-400'></div>
+                                        <h1 className='text-white text-[24px] font-extrabold'>ARTI LOGO</h1>
                                 </div>
-                                <div className='w-full'>
-                                    <div className='flex items-center space-x-3'>
-                                        <div className='w-1 h-[30px] rounded bg-blue-400'></div>
-                                        <h1 className='text-gray-600 text-xl font-extrabold'>Gambar Kereta Api Cepat</h1>
+                            </div>
+                              <div className='w-[80%] mx-auto flex sm:flex-col lg:flex-row lg: justify-center space-y-4 items-center'>
+                                <div className='flex-[0.5] flex flex-col items-start justify-center'>
+                                    <Image alt="logo" width={240} height={240} src={logoBaru} className='w-[240px] h-[240px] object-cover' />
+                                </div>
+                                <div className='flex-[0.5] flex flex-col space-y-3'>
+                                    <div className='w-full text-white'>
+                                        <div className='flex items-center space-x-3'>
+                                            <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                            <h1 className='text-white text-xl font-extrabold'>Bulat</h1>
+                                        </div>
+                                        <p className='ml-3 text-justify text-lg font-light'>
+                                            Memberikan kesan yang dinamis, bergerak tidak terputus, Merajut Generasi Insan Kereta Api PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
+                                        </p>
                                     </div>
-                                    <p className='ml-3 text-justify text-lg font-light'>
-                                        PERPENKA berpartisipasi aktif dalam pengembangan perkeretaapian dan berkolaborasi dalam keluarga besar kereta api yang selalu bergerak Dinamis dan Inovatif
-                                    </p>
+                                    <div className='w-full text-white'>
+                                        <div className='flex items-center space-x-3'>
+                                            <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                            <h1 className='text-white text-xl font-extrabold'>Biru</h1>
+                                        </div>
+                                        <p className='ml-3 text-justify text-lg font-light'>
+                                            Membawa kesan kreatif, bahagia, kebebasan, dan kepercayaan diri <br />
+                                        </p>
+                                    </div>
+                                    <div className='w-full text-white'>
+                                        <div className='flex items-center space-x-3'>
+                                            <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                            <h1 className='text-white text-xl font-extrabold'>Orange</h1>
+                                        </div>
+                                        <p className='ml-3 text-justify text-lg font-light'>
+                                            Memberikan kesan yang dinamis, bergerak Tidak terputus, Merajut Generasi Insan Kereta Api
+                                            PERPENKA menjadi rumah para Pensiunan dalam Keluarga Besar Kereta Api <br />
+                                        </p>
+                                    </div>
+                                    <div className='w-full text-white'>
+                                        <div className='flex items-center space-x-3'>
+                                            <div className='w-1 h-[30px] rounded bg-blue-400'></div>
+                                            <h1 className='text-white text-xl font-extrabold'>Gambar Kereta Api Cepat</h1>
+                                        </div>
+                                        <p className='ml-3 text-justify text-lg font-light'>
+                                            PERPENKA berpartisipasi aktif dalam pengembangan perkeretaapian dan berkolaborasi dalam keluarga besar kereta api yang selalu bergerak Dinamis dan Inovatif
+                                        </p>
+                                    </div>
                                 </div>
                               </div>
                         </div>
+                    </div>
+                        {/* seragam */}
                         {/* struktur */}
-                        <div className='min-h-screen w-full '>
+                        <div className='min-h-screen w-[80%] mx-auto '>
                               <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[180px]'>
                                     <div className='w-1 h-[40px] rounded bg-orange-300'></div>
                                     <h1 className='text-gray-600 text-[24px] font-extrabold'>STRUKTUR</h1>
@@ -200,28 +255,28 @@ export default function About() {
                                     className="mySwiper2 mt-3"
                                 >
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[400px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
                                     </SwiperSlide>
                                 </Swiper>
                                 </div>

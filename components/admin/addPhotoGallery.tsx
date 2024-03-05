@@ -37,7 +37,7 @@ function AddPhotoGallery() {
                               console.log(error.message)
                         },
                         async () => {
-                              const downloadURL = getDownloadURL(uploadTask.snapshot.ref)
+                              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
                               // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                               //       console.log(downloadURL)
                               // })

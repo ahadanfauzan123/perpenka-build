@@ -98,7 +98,7 @@ function AddPhotoBanner() {
                                     </div>
                               </div>
                               {/* button */}
-                              <button onClick={handleSubmit} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
+                              <button onClick={() => handleSubmit} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>

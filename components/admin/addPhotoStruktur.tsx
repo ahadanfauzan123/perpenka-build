@@ -75,7 +75,7 @@ function AddPhotoStruktur() {
                                     />
                               </div>
                               {/* button */}
-                              <button onClick={handleSubmit} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
+                              <button onClick={() => handleSubmit} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>
