@@ -32,6 +32,8 @@ import { NewsContext } from "../../context/NewsContext";
 import { useContext } from "react";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import GetVideo from "../../components/play";
+import ImageGallery from "../../components/imageGallery";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -67,7 +69,7 @@ const [ref, inView] = useInView()
     
     className="bg-gray-100 w-screen min-h-screen overflow-x-hidden">
       {/* navbar */}
-      <Navbar isGray={false} />
+      <Navbar isGray={true} />
       {/* heading */}
       <div className="bg-gray-200 z-20 w-full h-screen relative m-0 p-0 overflow-x-hidden">
       <Swiper 
@@ -89,7 +91,7 @@ const [ref, inView] = useInView()
         </SwiperSlide>
         <SwiperSlide>
         <div className="w-full h-full relative">
-            <Image id="bannerImage" src={Banner2} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
+            <Image id="bannerImage" src={Logo} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -115,8 +117,8 @@ const [ref, inView] = useInView()
               <div className="w-full h-1 rounded bg-gray-50 opacity-75"></div>
               <div className="flex items-center space-x-8">
                 <div className="flex flex-col items-center space-y-2">
-                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={6000} /><span>+</span></h1>
-                  <p className="text-xs md:text-md font-light text-gray-50">anggota</p>
+                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={6781} /><span>+</span></h1>
+                  <p className="text-xs md:text-md font-light text-gray-50">anggota<br />29 des 2023</p>
                 </div>
                 <div className="flex flex-col items-center space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={20} /><span>+</span></h1>
@@ -148,7 +150,7 @@ const [ref, inView] = useInView()
       {/* section 4 */}
       <div className="w-full flex flex-col items-center space-y-8 py-10">
         <h1 className="text-4xl font-extrabold text-gray-600">GALERI</h1>
-        <FeaturedImageGallery />
+        <ImageGallery />
       </div>
       {/* section 5 */}
       <div className="w-full bg-[1c2d8c] bg-gradient-to-tr from-[#ff7f00] to-[#e9841e] py-10 my-10">
@@ -181,6 +183,10 @@ const [ref, inView] = useInView()
           </div>
           </div>
         </div>
+      </div>
+      <div className="w-[80vw] mx-auto mt-[80px]">
+        <GetVideo />
+
       </div>
       {/*  */}
       {/* contact */}

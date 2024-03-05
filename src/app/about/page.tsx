@@ -8,6 +8,7 @@ import Image from 'next/image';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Logo from "../../../public/img/logo.jpg";
+import Dpp from "../../../public/img/pengurus/dpp.jpg";
 import Lambang from "../../../public/img/logofix.png";
 // Import Swiper styles
 import 'swiper/css';
@@ -17,6 +18,7 @@ import 'swiper/css/thumbs';
         
 import Navbar from '../../../components/navbar'
 import Footer from '../../../components/footer';
+
 
 SwiperCore.use([Thumbs]);
 
@@ -204,42 +206,67 @@ export default function About() {
                                     >
                                         <SwiperSlide>
                                             <div className=" rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 1
+                                                DPP
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 2
+                                                PD 1
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 3
+                                                PD 2
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 4
+                                                PD 3
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 5
+                                                PD 4
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 6
+                                                PD 5
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 7
+                                                PD 6
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 8
+                                                PD 8
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 9
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 10
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 11
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 12
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 13
                                             </div>
                                         </SwiperSlide>
                                         
@@ -257,7 +284,7 @@ export default function About() {
                                     className="mySwiper2 mt-3"
                                 >
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Dpp} />
                                     </SwiperSlide>
                                     <SwiperSlide>
                                     <Image alt="set" width={600} height={500} className='w-full h-[550px] max-h-screen rounded-xl' src={Logo} />
@@ -296,42 +323,67 @@ export default function About() {
                                     >
                                         <SwiperSlide>
                                             <div className=" rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 1
+                                                DPP
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 2
+                                                PD 1
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 3
+                                                PD 2
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 4
+                                                PD 3
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 5
+                                                PD 4
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 6
+                                                PD 5
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 7
+                                                PD 6
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                struktur 8
+                                                PD 8
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 9
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 10
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 11
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 12
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                PD 13
                                             </div>
                                         </SwiperSlide>
                                         
