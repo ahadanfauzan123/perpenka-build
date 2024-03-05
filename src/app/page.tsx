@@ -139,9 +139,9 @@ const [ref, inView] = useInView()
       <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full h-[80%]">
+          <Card post="persiapan acara hut perpenka" judul="HUT PERPENKA 2024" thumbs="hut" />
           {dashboardPost.map(post => (
-          <Card key={post.id} post={post.data.body} judul={post.data.title}  />
-          
+          <Card key={post.id} post={post.data.body} judul={post.data.title} thumbs="logo"  />
           ))}
         </div>
       </div>

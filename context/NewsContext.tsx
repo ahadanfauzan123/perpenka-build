@@ -98,7 +98,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                   const articlesCollection = collection(db, 'articles');
                   const latestSnapshot = await query(articlesCollection,
                         orderBy('postedOn', 'desc'),
-                        limit(3))
+                        limit(2))
                   const querySnapshot = await getDocs(latestSnapshot);
                   setDashboardPost(querySnapshot.docs.map(doc => {
                         return {
