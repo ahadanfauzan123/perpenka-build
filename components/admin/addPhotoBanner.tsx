@@ -94,7 +94,7 @@ function AddPhotoBanner() {
                                           ) : (
                                                 <div></div>
                                           )}
-                                          <h1 className='font-extrabold text-2xl z-30 w-[55%] text-center'>{value}</h1>
+                                          <h1 className='font-extrabold text-2xl z-30 text-white w-[55%] text-center'>{value}</h1>
                                     </div>
                               </div>
                               {/* button */}

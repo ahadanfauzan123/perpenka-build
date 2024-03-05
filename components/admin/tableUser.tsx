@@ -32,7 +32,7 @@ const TABLE_ROWS = [
  
 export default function Table() {
   return (
-    <Card className="h-full w-full overflow-scroll">
+    <Card placeholder={'main'} className="h-full w-full overflow-scroll">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
@@ -42,6 +42,7 @@ export default function Table() {
                 className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
               >
                 <Typography
+                  placeholder={''}
                   variant="small"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70"
@@ -61,6 +62,7 @@ export default function Table() {
               <tr key={name}>
                 <td className={classes}>
                   <Typography
+                  placeholder={''}
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
@@ -70,6 +72,7 @@ export default function Table() {
                 </td>
                 <td className={classes}>
                   <Typography
+                  placeholder={''}
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
@@ -79,6 +82,7 @@ export default function Table() {
                 </td>
                 <td className={classes}>
                   <Typography
+                  placeholder={''}
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
@@ -88,6 +92,7 @@ export default function Table() {
                 </td>
                 <td className={classes}>
                   <Typography
+                  placeholder={''}
                     as="a"
                     href="#"
                     variant="small"

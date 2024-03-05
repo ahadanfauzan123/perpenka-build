@@ -110,7 +110,7 @@ const [ref, inView] = useInView()
           variants={cardVariants}
           className="flex-[0.50] flex flex-col space-y-3">
             <h1 className="text-6xl font-bold text-gray-50 ">Tentang <span className="text-[#ff7f00]">PERPENKA</span></h1>
-            <p className=" text-gray-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolores quis, laborum aperiam ducimus possimus! Recusandae error dolorem quae esse officiis molestias explicabo voluptatum laborum. Tempore eaque labore molestiae corporis, qui neque, non, nulla provident voluptate rerum quas beatae eum?</p>
+            <p className=" text-gray-50">Wadah untuk berhimpun bagi para pensiunan karyawan yang didasari sebagai bagian keluarga besar Kereta Api.</p>
             <div className="flex flex-col space-y-4">
               <div className="w-full h-1 rounded bg-gray-50 opacity-75"></div>
               <div className="flex items-center space-x-8">

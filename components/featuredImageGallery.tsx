@@ -14,7 +14,9 @@ function FeaturedImageGallery() {
   return (
     <div className="grid gap-4 w-[80vw] mx-auto">
       <div>
-        <img
+        <Image
+        width={600}
+        height={400}
           className="h-[70vh] w-full rounded-lg object-cover object-center md:h-[480px]"
           src={active}
           alt=""
@@ -22,7 +24,7 @@ function FeaturedImageGallery() {
       </div>
       <div className="grid grid-cols-5 gap-4 w-full mx-auto">
         {galleryDashboard.map( gm => (
-            <img
+            <Image
             key={gm.id}
               width={200}
               height={80}
