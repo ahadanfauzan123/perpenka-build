@@ -24,8 +24,8 @@ import Footer from "../../components/footer";
 import AnimatedCounter from  "../../components/counter";
 import WhatsApp from "../../components/whatsapp";
 import Banner1 from "../../public/img/banner1.png"
-import Banner2 from "../../public/img/banner2.png"
-import Banner3 from "../../public/img/banner3.jpg"
+import Banner2 from "../../public/img/banner5.jpg"
+import Banner3 from "../../public/img/banner6.jpg"
 import Logo from "../../public/img/logoBaru.jpg"
 
 import { NewsContext } from "../../context/NewsContext";
