@@ -89,7 +89,7 @@ a:hover > .arrow {
   @apply bg-orange-400 border border-orange-400 ;
   
 } */
-/* body {
+body {
   overflow-x: hidden;
 }
  .swiper {
@@ -138,4 +138,4 @@ button {
   &:active {
     background-color: #4289e6;
   }
-} */
+}

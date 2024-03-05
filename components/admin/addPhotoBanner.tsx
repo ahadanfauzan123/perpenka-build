@@ -28,7 +28,7 @@ function AddPhotoBanner() {
             reader.readAsDataURL(file);
       }
       }
-      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             if (image)  {
                   // startUpload(file)
@@ -98,7 +98,7 @@ function AddPhotoBanner() {
                                     </div>
                               </div>
                               {/* button */}
-                              <button onClick={() => handleSubmit} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
+                              <button onClick={handleSubmit} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>
