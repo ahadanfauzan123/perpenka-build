@@ -24,12 +24,11 @@ function DataBerita() {
                               <h1 className='text-gray-600 text-3xl font-extrabold'>kelola berita</h1>
                   </div>
                   {/* body */}
-                  <div className='w-[60%] flex flex-col space-y-3 mx-auto'>
+                  <div className='w-[60%] flex flex-col space-y-5 mx-auto'>
                   {posts.map(post => (
-                        <>
-                        {/* <NewsCard key={post.id} body={post.data.body} postedOn={String(post.data.postedOn)} judul={post.data.title}  /> */}
-            
-                        </>
+                        
+                   <NewsCard key={post.id} body={post.data.body}  judul={post.data.title}  />
+      
           
                   ))}
                   </div>

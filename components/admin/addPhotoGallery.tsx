@@ -1,24 +1,30 @@
 "use client"
 import React, {useState, ChangeEvent} from 'react'
+import {v4 as uuidv4 } from "uuid"
+// import useStorage from "../../hooks/useStorage"
 
 import { LuUploadCloud } from "react-icons/lu";
 import { Input, Text } from '@chakra-ui/react';
-import { storage } from '../../firebase';
-import  {ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
+import { db, storage } from '../../firebase';
+import  {getDownloadURL, ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 function AddPhotoGallery() {
       const [value, setValue] = useState<string>('');
       const [image, setImage] = useState<File | null>(null);
-
+      // const {startUpload} = useStorage()
       const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       setValue(event.target.value);
       if (event.target.files && event.target.files[0]){
             setImage(event.target.files[0]);
-            // setUrlImage(event.target.files[0])
       }
       }
-      const handleUpload = () => {
+      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
             if (image)  {
-                  const storageRef = ref(storage, `banners/${image.name}`);
+                  // startUpload(file)
+                  const fileId = uuidv4()
+                  const formatFile = image.type.split('/')[1];
+                  const storageRef = ref(storage, `gallery/${fileId}.${formatFile}`);
                   const uploadTask = uploadBytesResumable(storageRef, image);
                   uploadTask.on(
                         "state_changed",
@@ -30,8 +36,17 @@ function AddPhotoGallery() {
                         error => {
                               console.log(error.message)
                         },
-                        () => {
-                              console.log("upload selesai")
+                        async () => {
+                              const downloadURL = getDownloadURL(uploadTask.snapshot.ref)
+                              // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                              //       console.log(downloadURL)
+                              // })
+                              await addDoc(collection(db, "images"), {
+                                    name: fileId,
+                                    url: downloadURL,
+                                    role: "gallery",
+                                    createdAt: serverTimestamp()
+                              })
                         }
                   )
             }
@@ -49,7 +64,7 @@ function AddPhotoGallery() {
                               </label>
                               </div> 
                               {/* button */}
-                              <button onClick={handleUpload} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
+                              <button onClick={handleSubmit} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>

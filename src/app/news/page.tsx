@@ -1,9 +1,12 @@
-import React from 'react'
+"use client"
+import React, { useContext } from 'react'
 import Navbar from '../../../components/navbar'
 import NewsCard from '../../../components/newsCard'
 import Footer from '../../../components/footer'
+import { NewsContext } from '../../../context/NewsContext'
 
 function News() {
+      const {posts} = useContext(NewsContext)
       
   return (
       <div className="bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600">
@@ -16,9 +19,9 @@ function News() {
                   </div>
                   {/* body */}
                   <div className='w-full flex flex-col space-y-3 lg:space-y-2'>
-                        <NewsCard />  
-                        <NewsCard />  
-                        <NewsCard />  
+                        {posts.map(post => (
+                              <NewsCard key={post.id} slug={post.id} tanggal={post.data.postedOn} post={post.data.body} judul={post.data.title} />  
+                        ))} 
                         {/* <div classNameName='w-[350px] h-[350px] bg-blue-400'></div> */}
                   </div>
             </div>

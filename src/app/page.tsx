@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Card from "../../components/dashboardCard";
 import Navbar from "../../components/navbar";
@@ -30,14 +30,15 @@ import Logo from "../../public/img/logoBaru.jpg"
 
 import { NewsContext } from "../../context/NewsContext";
 import { useContext } from "react";
+import { collection, doc, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Home() {
 
-  const {posts} = useContext(NewsContext);
-  console.log(posts, "🔥")
+  const {dashboardPost} = useContext(NewsContext);
 
   const exampleVariant = {
     visible: { opacity: 1 },
@@ -138,7 +139,7 @@ const [ref, inView] = useInView()
       <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full h-[80%]">
-          {posts.map(post => (
+          {dashboardPost.map(post => (
           <Card key={post.id} post={post.data.body} judul={post.data.title}  />
           
           ))}

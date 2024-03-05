@@ -10,9 +10,8 @@ import { Timestamp } from 'firebase/firestore';
 type CounterProps = {
       judul: string;
       body: string;
-      postedOn: string;
     };
-function NewsCard({body,judul, postedOn}: CounterProps) {
+function NewsCard({body,judul}: CounterProps) {
       
   let [isOpen, setIsOpen] = useState(false)
   function closeModal() {
@@ -33,7 +32,7 @@ function NewsCard({body,judul, postedOn}: CounterProps) {
             {/* informaton */}
             <div className=' flex-[0.8] flex flex-col space-y-1'>
                   {/* title */}
-                  <h1 className=' italic font-light text-xs text-gray-500'>{postedOn}</h1>
+                  <h1 className=' italic font-light text-xs text-gray-500'></h1>
                   {/* brief */}
                   <h1 className='font-semibold w-full truncate text-xl text-gray-700'>{judul}</h1>
                   {/* time */}

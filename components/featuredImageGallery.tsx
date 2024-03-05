@@ -1,53 +1,39 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../public/img/logo.jpg";
+import { NewsContext } from "../context/NewsContext";
 function FeaturedImageGallery() {
-  const data = [
-    {
-      imgelink:
-        "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-    },
-    {
-      imgelink:
-        "https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    },
-    {
-      imgelink:
-        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
-    },
-    {
-      imgelink:
-        "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
-    },
-    {
-      imgelink:
-        "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-    },
-  ];
+  const {galleryDashboard} = useContext(NewsContext)
+  console.log(galleryDashboard)
+  
  
   const [active, setActive] = React.useState(
-    "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    `https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`
   );
  
   return (
     <div className="grid gap-4 w-[80vw] mx-auto">
       <div>
-        <Image
+        <img
           className="h-[70vh] w-full rounded-lg object-cover object-center md:h-[480px]"
-          src={Logo}
+          src={active}
           alt=""
         />
       </div>
       <div className="grid grid-cols-5 gap-4 w-full mx-auto">
-        {data.map(({ imgelink }, index) => (
-          <div key={index}>
-            <Image
-              onClick={() => setActive(imgelink)}
-              src={Logo}
+        {galleryDashboard.map( gm => (
+            <img
+            key={gm.id}
+              width={200}
+              height={80}
+              onClick={() => setActive(gm.data.url)}
+              src={gm.data.url}
               className="h-20 w-[200px] cursor-pointer rounded-lg object-cover object-center"
               alt="gallery-image"
             />
-          </div>
+            // <div key={gm.id}>
+            //   test
+            // </div>
         ))}
       </div>
     </div>

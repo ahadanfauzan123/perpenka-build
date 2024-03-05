@@ -1,10 +1,13 @@
-import React from 'react'
+"use client"
+import React, { useContext } from 'react'
 import Navbar from '../../../components/navbar';
 import Footer from '../../../components/footer';
 import Image from 'next/image';
 import Logo from "../../../public/img/logofix.png";
+import { NewsContext } from '../../../context/NewsContext';
 
 function Gallery() {
+  const {fullGallery} = useContext(NewsContext)
       const data = [
         {
           imageLink:
@@ -55,11 +58,11 @@ function Gallery() {
                         </div>
                         {/* body */}
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                        {data.map(({ imageLink }, index) => (
-                              <div key={index}>
+                        {fullGallery.map( fg => (
+                              <div key={fg.id}>
                               <Image 
                               className="h-[240px] w-full max-w-full rounded-lg object-cover object-center"
-                              src={Logo}
+                              src={fg.data.url}
                               alt="gallery-photo"
                               />
                               </div>

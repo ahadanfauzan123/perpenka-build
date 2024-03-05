@@ -1,10 +1,12 @@
 "use client"
 import React, {useState, ChangeEvent} from 'react'
+import {v4 as uuidv4 } from "uuid"
+import { db, storage } from '../../firebase';
+import  {getDownloadURL, ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 import { LuUploadCloud } from "react-icons/lu";
 import { Input, Text } from '@chakra-ui/react';
-import { storage } from '../../firebase';
-import  {ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
 import Image from 'next/image';
 function AddPhotoBanner() {
       const [value, setValue] = useState<string>('');
@@ -26,9 +28,13 @@ function AddPhotoBanner() {
             reader.readAsDataURL(file);
       }
       }
-      const handleUpload = () => {
+      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
             if (image)  {
-                  const storageRef = ref(storage, `banners/${image.name}`);
+                  // startUpload(file)
+                  const fileId = uuidv4()
+                  const formatFile = image.type.split('/')[1];
+                  const storageRef = ref(storage, `banners/${fileId}.${formatFile}`);
                   const uploadTask = uploadBytesResumable(storageRef, image);
                   uploadTask.on(
                         "state_changed",
@@ -40,8 +46,17 @@ function AddPhotoBanner() {
                         error => {
                               console.log(error.message)
                         },
-                        () => {
-                              console.log("upload selesai")
+                        async () => {
+                              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
+                              // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                              //       console.log(downloadURL)
+                              // })
+                              await addDoc(collection(db, "images"), {
+                                    name: value,
+                                    url: downloadURL,
+                                    role: "banner",
+                                    createdAt: serverTimestamp()
+                              })
                         }
                   )
             }
@@ -72,9 +87,9 @@ function AddPhotoBanner() {
                               {/* preview */}
                               <div className='w-[60%] flex flex-col space-y-4'>
                                     <h1 className='text-2xl'>preview</h1>
-                                    <div className='relative bg-white w-full h-64 rounded-lg flex items-center justify-center'>
+                                    <div className='relative bg-white w-full h-72 rounded-lg flex items-center justify-center'>
                                           {urlImage? (
-                                                <Image alt='set' src={urlImage.toString()} className='absolute top-0 left-0 bg-gray-300 rounded-lg w-full h-full z-10' />
+                                                <Image width={600} height={400} alt='set' src={urlImage.toString()} className='absolute top-0 left-0 bg-gray-300 rounded-lg w-full h-full z-10 object-cover' />
 
                                           ) : (
                                                 <div></div>
@@ -83,7 +98,7 @@ function AddPhotoBanner() {
                                     </div>
                               </div>
                               {/* button */}
-                              <button onClick={handleUpload} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
+                              <button onClick={handleSubmit} className='text-white px-5 py-4 bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>

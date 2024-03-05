@@ -1,24 +1,30 @@
 "use client"
 import React, {useState, ChangeEvent} from 'react'
+import {v4 as uuidv4 } from "uuid"
+// import useStorage from "../../hooks/useStorage"
 
 import { LuUploadCloud } from "react-icons/lu";
 import { Input, Text } from '@chakra-ui/react';
-import { storage } from '../../firebase';
-import  {ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
+import { db, storage } from '../../firebase';
+import  {getDownloadURL, ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 function AddPhotoStruktur() {
       const [value, setValue] = useState<string>('');
       const [image, setImage] = useState<File | null>(null);
-
+      // const {startUpload} = useStorage()
       const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       setValue(event.target.value);
       if (event.target.files && event.target.files[0]){
             setImage(event.target.files[0]);
-            // setUrlImage(event.target.files[0])
       }
       }
-      const handleUpload = () => {
+      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
             if (image)  {
-                  const storageRef = ref(storage, `banners/${image.name}`);
+                  // startUpload(file)
+                  const fileId = uuidv4()
+                  const formatFile = image.type.split('/')[1];
+                  const storageRef = ref(storage, `structures/${fileId}.${formatFile}`);
                   const uploadTask = uploadBytesResumable(storageRef, image);
                   uploadTask.on(
                         "state_changed",
@@ -30,8 +36,17 @@ function AddPhotoStruktur() {
                         error => {
                               console.log(error.message)
                         },
-                        () => {
-                              console.log("upload selesai")
+                        async () => {
+                              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
+                              // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                              //       console.log(downloadURL)
+                              // })
+                              await addDoc(collection(db, "images"), {
+                                    name: value,
+                                    url: downloadURL,
+                                    role: "struktur",
+                                    createdAt: serverTimestamp()
+                              })
                         }
                   )
             }
@@ -48,8 +63,19 @@ function AddPhotoStruktur() {
                                     <input id="dropzone-file" type="file" className="inline" onChange={handleChange} />
                               </label>
                               </div> 
+                              {/* heading */}
+                              <div className='bg-white w-[60%] h-[100px] rounded-lg px-4 py-1'>
+                                    <Text mb='8px' className='text-2xl '>title</Text>
+                                    <Input
+                                    value={value}
+                                    onChange={handleChange}
+                                    placeholder='Tambah Judul untuk struktur..'
+                                    size='sm'
+                                    className='bg-transparent font-semibold placeholder:text-gray-300 h-[50px] w-full ring-0 outline-0 border-0 text-xl'
+                                    />
+                              </div>
                               {/* button */}
-                              <button onClick={handleUpload} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
+                              <button onClick={handleSubmit} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
                                     submit
                               </button>
                         </div>
