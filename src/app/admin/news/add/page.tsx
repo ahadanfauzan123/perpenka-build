@@ -79,7 +79,7 @@ function AddNews() {
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setBrief(event.target.value)}
                   />
             </div>
-            <button type='submit' className="w-[200px]" onClick={addPostToFirebase}>submit</button>
+            <button type='submit' className="w-[200px]" onClick={() => addPostToFirebase}>submit</button>
       </div>
 </div>
 </div>
