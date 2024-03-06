@@ -1,8 +1,10 @@
 import React from 'react'
+import Image from "next/image"
+import Logo from "../public/img/logofix.png"
 
 function Footer() {
   return (
-      <div className="bg-white mt-[240px] px-4 pt-16 mx-auto w-screen md:px-24 lg:px-8">
+      <div className="bg-[#1c2d8c] mt-[240px] px-8 pt-16 mx-auto w-screen md:px-24 lg:px-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <a
@@ -11,27 +13,13 @@ function Footer() {
             title="Company"
             className="inline-flex items-center"
           >
-            <svg
-              className="w-8 text-deep-purple-accent-400"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeMiterlimit="10"
-              stroke="currentColor"
-              fill="none"
-            >
-              <rect x="3" y="1" width="7" height="12" />
-              <rect x="3" y="17" width="7" height="6" />
-              <rect x="14" y="1" width="7" height="6" />
-              <rect x="14" y="11" width="7" height="12" />
-            </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <Image alt="lambang" src={Logo} width={38} height={38} className='w-[24px] h-[24px]' />
+            <span className="ml-2 text-xl font-bold tracking-wide text-gray-300 uppercase">
               perpenka
             </span>
           </a>
           <div className="mt-6 lg:max-w-sm">
-            <p className="text-sm text-gray-800">
+            <p className="text-sm text-gray-300">
               Jl. Laswi No. 30<br/>  
               Kelurahan Kacapiring<br/>  
               Kecamatan Batunuggal<br/>  
@@ -41,34 +29,34 @@ function Footer() {
           </div>
         </div>
         <div className="space-y-2 text-sm">
-          <p className="text-base font-bold tracking-wide text-gray-900">
+          <p className="text-base font-bold tracking-wide text-gray-100">
             Contacts
           </p>
           <div className="flex">
-            <p className="mr-1 text-gray-800">Phone:</p>
+            <p className="mr-1 text-gray-300">Phone:</p>
             <a
               href="tel:850-123-5021"
               aria-label="Our phone"
               title="Our phone"
-              className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              className="transition-colors duration-300 text-gray-300 hover:text-deep-purple-800"
             >
               022-7214017
             </a>
           </div>
           <div className="flex">
-            <p className="mr-1 text-gray-800">Email:</p>
+            <p className="mr-1 text-gray-300">Email:</p>
             <a
               href="mailto:info@lorem.mail"
               aria-label="Our email"
               title="Our email"
-              className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              className="transition-colors duration-300 text-gray-300 hover:text-deep-purple-800"
             >
               perpenkapusat@gmail.com
             </a>
           </div>
         </div>
         <div>
-          <span className="text-base font-bold tracking-wide text-gray-900">
+          <span className="text-base font-bold tracking-wide text-gray-100">
             Social
           </span>
           <div className="flex items-center mt-1 space-x-3">
@@ -98,19 +86,19 @@ function Footer() {
               </svg>
             </a>
           </div>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-300">
           </p>
         </div>
       </div>
       <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-300">
           © Copyright 2024 PERPENKA
         </p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
             <a
               href="/"
-              className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+              className="text-sm text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               F.A.Q
             </a>
@@ -118,7 +106,7 @@ function Footer() {
           <li>
             <a
               href="/"
-              className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+              className="text-sm text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               Privacy Policy
             </a>
@@ -126,7 +114,7 @@ function Footer() {
           <li>
             <a
               href="/"
-              className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
+              className="text-sm text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               Terms &amp; Conditions
             </a>

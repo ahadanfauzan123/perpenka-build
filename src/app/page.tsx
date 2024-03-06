@@ -64,6 +64,38 @@ const [ref, inView] = useInView()
       }
     }
   };
+  const titleVariant1: Variants = {
+    offscreen: {
+      x: -80,
+      opacity: 0
+    },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      // rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  };
+  const titleVariant2: Variants = {
+    offscreen: {
+      x: 80,
+      opacity: 0
+    },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      // rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  };
   return (
     <motion.div 
     
@@ -116,17 +148,17 @@ const [ref, inView] = useInView()
             <div className="flex flex-col space-y-4">
               <div className="w-full h-1 rounded bg-gray-50 opacity-75"></div>
               <div className="flex items-center space-x-8">
-                <div className="flex flex-col items-center space-y-2">
+                <div className="flex flex-col items-start justify-between h-[86px]">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={6781} /><span>+</span></h1>
-                  <p className="text-xs md:text-md font-light text-gray-50">anggota<br />29 des 2023</p>
+                  <p className=" text-xs lg:text-[14px] font-light h-[30px] text-gray-50">anggota<br />31 des 2023</p>
                 </div>
-                <div className="flex flex-col items-center space-y-2">
+                <div className="flex flex-col items-start justify-between h-[86px] space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={20} /><span>+</span></h1>
-                  <p className=" text-xs md:text-md font-light text-gray-50">acara tahunan</p>
+                  <p className=" text-xs lg:text-[14px] font-light h-[30px] text-gray-50">acara tahunan</p>
                 </div>
-                <div className="flex flex-col items-center space-y-2">
+                <div className="flex flex-col items-start justify-between h-[86px] space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={14} /><span></span></h1>
-                  <p className="text-xs md:text-md font-light text-gray-50">daerah&pusat</p>
+                  <p className=" text-xs lg:text-[14px] font-light h-[30px] text-gray-50">daerah&pusat</p>
                 </div>
               </div>
 
@@ -137,6 +169,63 @@ const [ref, inView] = useInView()
           </div>
         </div>
       </div>
+      {/* section */}
+      <div className="w-[80vw] mx-auto flex flex-col space-y-8">
+        {/* kegiatan pertama */}
+        <div className="flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center lg:justify-between w-full h-[65vh]">
+          <motion.h1
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant1}
+          className="text-5xl flex-[0.2] lg:flex-[0.35] font-bold text-gray-600 leading-[50px]">Menguatkan Hak Anggota</motion.h1>
+          <motion.h3 
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant2}
+          className="flex-[0.4] text-justify">
+            Memastikan dan Memperjuangkan semua hak-hak Pensiunan Karyawan PT Kereta Api secara normatif sudah dipenuhi.</motion.h3>
+
+        </div>
+        {/* kegiatan kedua */}
+        <div className="flex flex-col lg:flex-row space-y-8 items-end lg:items-center justify-between  lg:justify-between w-full p-4 bg-gray-300 h-[65vh]">
+        <motion.h3 
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant1}
+          className="flex-[0.4] text-justify">
+            Meningkatkan kesejasteraan spriritual dan material anggota perkumpulan melalui pembinaan bidang kerohanian dan meningkatkan dana perkumpulan dari berbagai sumber perdanaan.
+            </motion.h3>
+          <motion.h1
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant2}
+          className="text-5xl flex-[0.2] text-end lg:flex-[0.35] font-bold text-gray-600 leading-[50px]">Membangun Kehidupan Sejahtera</motion.h1>
+          
+
+        </div>
+        {/* kegiatan ketiga */}
+        <div className="flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center  lg:justify-between w-full h-[65vh]">
+          <motion.h1
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant1}
+          className="text-5xl flex-[0.2] lg:flex-[0.35] font-bold text-gray-600 leading-[50px]">digitalisasi PERPENKA</motion.h1>
+          <motion.h3 
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.8 }}
+          variants={titleVariant2}
+          className="flex-[0.4] text-justify">
+            Mengusahakan semua Pensiunan Karyawan Kereta Api bergabung menjadi anggota PERPENKA dengan melakukan sosialisasi organisasi PERPENKA dan mempermudah proses pendaftaran melalui teknologi digital.  </motion.h3>
+
+        </div>
+      </div>
+      
       {/* section 3 */}
       <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
@@ -146,11 +235,6 @@ const [ref, inView] = useInView()
           <Card key={post.id} post={post.data.body} judul={post.data.title} thumbs="logo"  />
           ))}
         </div>
-      </div>
-      {/* section 4 */}
-      <div className="w-full flex flex-col items-center space-y-8 py-10">
-        <h1 className="text-4xl font-extrabold text-gray-600">GALERI</h1>
-        <ImageGallery />
       </div>
       {/* section 5 */}
       <div className="w-full bg-[1c2d8c] bg-gradient-to-tr from-[#ff7f00] to-[#e9841e] py-10 my-10">
@@ -184,9 +268,19 @@ const [ref, inView] = useInView()
           </div>
         </div>
       </div>
-      <div className="w-[80vw] mx-auto mt-[80px]">
+      {/* section 4 */}
+      <div className="w-full flex flex-col items-center space-y-8 py-10">
+        <h1 className="text-4xl font-extrabold text-gray-600">GALERI</h1>
+        <ImageGallery />
+      </div>
+      
+      {/* section 6 */}
+      <div className="w-screen lg:w-[80vw] mx-auto mt-0 lg:mt-[80px] h-[90vh] lg:h-[42vh] bg-[#1c2d8c] flex flex-col lg:flex-row items-center space-x-6 space-y-9 justify-center">
         <GetVideo />
-
+        <div className="flex flex-col space-y-3">
+            <h1 className="text-2xl font-semibold text-gray-100">Profile PERPENKA</h1>
+            <a href="/about" className="text-white bg-transparent border-2 border-gray-100 flex justify-center px-5 py-3 rounded-md"> learn more</a>
+        </div>
       </div>
       {/*  */}
       {/* contact */}

@@ -10,7 +10,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import Image from 'next/image';
 import Logo from '../public/img/logofix.png'
-import Gallery1 from '../public/img/banner6.jpg'
+import Gallery1 from '../public/img/gallery/gal2.jpg'
+import Gallery2 from '../public/img/gallery/gal6.jpg'
+import Gallery3 from '../public/img/gallery/gal3.jpg'
+import Gallery4 from '../public/img/gallery/gal4.jpg'
+import Gallery5 from '../public/img/gallery/gal7.jpg'
 SwiperCore.use([Thumbs]);
 function ImageGallery() {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
@@ -29,26 +33,33 @@ function ImageGallery() {
                                     className="mySwiper2 mt-3"
                                 >
                                     <SwiperSlide>
-                                          <div className='w-full h-full bg-red-400 rounded-xl'>
-                                                <Image alt="set" width={600} height={450} className='w-full h-full rounded-xl' src={Gallery1} />
+                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                                <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery1} />
                                           </div>
                                     
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-full bg-blue-400 rounded-xl'>
-                                                </div>
+                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                            <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery2} />
+                                            </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-full bg-blue-400 rounded-xl'>
-                                                </div>
+                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                            <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery3} />
+                                           
+                                            </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-full bg-blue-400 rounded-xl'>
-                                                </div>
+                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                            <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery4} />
+                                           
+                                            </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-full bg-blue-400 rounded-xl'>
-                                                </div>
+                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                            <Image alt="set" width={600} height={450} className='w-full h-full rounded-xl' src={Gallery5} />
+                                           
+                                            </div>
                                     </SwiperSlide>
       </Swiper>
       <Swiper
@@ -69,25 +80,25 @@ function ImageGallery() {
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[12vw] h-[56px] shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Logo} />
+                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Gallery2} />
                                     
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[12vw] h-[56px] shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Logo} />
+                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Gallery3} />
                                     
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[12vw] h-[56px] shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Logo} />
+                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Gallery4} />
                                     
                                             </div>
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className=" cursor-pointer rounded-lg text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[12vw] h-[56px] shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Logo} />
+                                                <Image alt="set" width={600} height={500} className='w-full h-full rounded-lg object-cover' src={Gallery5} />
                                     
                                             </div>
                                         </SwiperSlide>
