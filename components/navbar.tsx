@@ -69,7 +69,7 @@ function Navbar({isGray}: UseColorProps) {
         <a href='/' className="text-xl font-bold h-12 w-12">
           <Image src={Logo} alt="logo" className={`rounded-sm w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
         </a>
-        <h1 className='text-lg font-semibold text-[#1c2d8c]'>PERP<span className='text-[#ff7f00]'>ENKA</span></h1>
+        <h1 className='text-lg font-semibold text-[#1c2d8c]'>PERPENKA</h1>
           </div>
         <div className="hidden lg:flex items-center justify-end space-x-5">
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
@@ -108,19 +108,19 @@ function Navbar({isGray}: UseColorProps) {
               </div>
               {/* navigate */}
               <div className="flex flex-col space-y-2 flex-1">
-                <a href='./' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
+                <a href='/' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
                   <FiHome className='text-lg' />
                   <h3 className="text-md flex-1">home</h3>
                 </a>
-                <a href='./about' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
+                <a href='/about' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
                   <FiUsers className='text-lg' />
                   <h3 className="text-md flex-1">profile</h3>
                 </a>
-                <a href='./news' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
+                <a href='/news' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
                   <TbNews className='text-lg' />
                   <h3 className="text-md flex-1">berita</h3>
                 </a>
-                <a href='./gallery' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
+                <a href='/gallery' className='w-full p-2 rounded-md active:bg-gray-200 hover:bg-gray-200 flex items-center justify-start space-x-2 hover:pl-4 trasition-all duration-300'>
                   <IoImagesOutline className='text-lg' />
                   <h3 className="text-md flex-1">galeri</h3>
                 </a>
@@ -131,7 +131,7 @@ function Navbar({isGray}: UseColorProps) {
           </div>
               <div className='w-full flex items-center justify-center space-x-3'>
                 <p className='text-sm font-light'>hubungi lewat: </p>
-                <a href='https://wa.me/6281905639178' className=' bg-white p-1 rounded ring-1 ring-green-400'>
+                <a href='https://wa.me/' className=' bg-white p-1 rounded ring-1 ring-green-400'>
                     <BsWhatsapp className='text-xl text-green-400' />
                 </a>
               </div>

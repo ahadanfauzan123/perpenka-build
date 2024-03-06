@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Logo from "../public/img/logo.jpg";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Thumbs1 from "../public/img/banner3.jpg"
+import Thumbs2 from "../public/img/news/kemejaBanner.jpg"
+import Thumbs3 from "../public/img/news/halalbihalal.jpg"
 
 
 
@@ -16,12 +19,18 @@ type CounterProps = {
 function NewsCard({judul, post, slug, tanggal}: CounterProps) {
   return (
       
-      <div className="relative flex flex-col lg:flex-row bg-clip-border rounded-xl bg-white text-gray-600 shadow-md w-full max-w-[100%]">
+      <div className="relative h-[500px] lg:h-[420px] flex flex-col lg:flex-row bg-clip-border rounded-xl bg-white text-gray-600 shadow-md w-full max-w-[100%]">
             <div
-            className="relative w-full lg:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-t-xl lg:rounded-t-none lg:rounded-r-none bg-clip-border rounded-xl shrink-0">
-                  <Image
-                        src={Logo}
-                        alt="card-image" className="object-cover w-full h-full" />
+            className="h-[300px] lg:h-[420px] relative w-full lg:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-t-xl lg:rounded-t-none lg:rounded-r-none bg-clip-border rounded-xl shrink-0">
+                  {slug == "hut" ? (
+          <Image alt="hut" src={Thumbs1} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
+          ): (<></>)}
+        {slug == "kemeja" ?(
+            <Image alt="hut" src={Thumbs2} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
+        ) : (<></>) }
+        {slug == "halalbihalal" ?(
+            <Image alt="hut" src={Thumbs3} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
+        ) : (<></>) }
                   </div>
                    <div className="p-6">
                   <h6

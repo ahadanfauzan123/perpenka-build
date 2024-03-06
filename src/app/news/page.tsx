@@ -19,9 +19,12 @@ function News() {
                   </div>
                   {/* body */}
                   <div className='w-full flex flex-col space-y-3 lg:space-y-2'>
-                        {posts.map(post => (
+                        <NewsCard slug="hut" tanggal="7 Maret 2024" post="Acara HUT PERPENKA ke-57" judul="HUT PERPENKA ke-57" />
+                        <NewsCard slug="halalbihalal" tanggal="7 Maret 2024" post="Informasi Acara Halal Bihalal PERPENKA 2024" judul="Halal Bihalal PERPENKA  2024" />
+                        <NewsCard slug="kemeja" tanggal="7 Maret 2024" post="Pelajari lebih jauh mengenai kemeja PERPENKA" judul="Atribut Kemeja PERPENKA 2024" />
+                        {/* {posts.map(post => (
                               <NewsCard key={post.id} slug={post.id} tanggal={post.data.postedOn} post={post.data.body} judul={post.data.title} />  
-                        ))} 
+                        ))}  */}
                         {/* <div classNameName='w-[350px] h-[350px] bg-blue-400'></div> */}
                   </div>
             </div>

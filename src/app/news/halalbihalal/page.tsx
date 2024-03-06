@@ -11,7 +11,7 @@ function Halalbihalal() {
   return (
       <div className="bg-gray-200 w-screen min-h-screen overflow-x-hidden text-gray-600">
             <Navbar isGray={true} />
-            <div className=' min-h-screen w-full mx-auto flex flex-col items-center space-y-3'>
+            <div className=' min-h-screen w-full mx-auto flex flex-col items-center'>
               <div className="bg-gray-400 w-screen h-[450px]">
                   <Image alt="banner" src={Banner} width={400} height={400} className="w-full h-full object-cover" />
               </div>
@@ -32,7 +32,8 @@ function Halalbihalal() {
               </div>
               </div>
               <div className="py-12 w-full h-screen flex items-start justify-center">
-                  <div className="w-[80vw] mx-auto">
+              <div className='w-[80%] mx-auto mt-[24px] flex justify-center'>
+                        <p className='text-2xl text-justify'>Coming Soon...</p>
                   </div>
               </div>
             </div>
