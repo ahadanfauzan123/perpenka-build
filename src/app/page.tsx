@@ -187,7 +187,7 @@ const [ref, inView] = useInView()
           whileInView="onscreen"
           viewport={{ once: false, amount: 0.8 }}
           variants={titleVariant2}
-          className="flex-[0.4] text-justify text-lg">
+          className="flex-[0.4] z-20 text-justify text-lg">
             Memastikan dan Memperjuangkan semua hak-hak Pensiunan Karyawan PT Kereta Api secara normatif sudah dipenuhi.</motion.h3>
 
         </div>
@@ -201,7 +201,7 @@ const [ref, inView] = useInView()
           whileInView="onscreen"
           viewport={{ once: false, amount: 0.8 }}
           variants={titleVariant2}
-          className="flex-[0.4] text-justify text-lg text-white">
+          className="flex-[0.4] z-20 text-justify text-lg text-white">
             Meningkatkan kesejasteraan spriritual dan material anggota perkumpulan melalui pembinaan bidang kerohanian dan meningkatkan dana perkumpulan dari berbagai sumber perdanaan.
             </motion.h3>
           <motion.h1
@@ -228,7 +228,7 @@ const [ref, inView] = useInView()
           whileInView="onscreen"
           viewport={{ once: false, amount: 0.8 }}
           variants={titleVariant2}
-          className="flex-[0.4] text-justify text-lg">
+          className="flex-[0.4] z-20 text-justify text-lg">
             Mengusahakan semua Pensiunan Karyawan Kereta Api bergabung menjadi anggota PERPENKA dengan melakukan sosialisasi organisasi PERPENKA dan mempermudah proses pendaftaran melalui teknologi digital.  </motion.h3>
 
         </div>

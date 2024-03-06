@@ -16,7 +16,7 @@ function DesainKemeja() {
                   <Image alt="banner" src={Banner} width={400} height={400} className="w-full h-full object-cover" />
               </div>
               {/* title */}
-              <div className='w-full h-[150px] py-2 bg-white'>
+              <div className='w-full py-4 bg-white'>
               <div className='flex flex-col space-y-2 w-[80vw] mx-auto'>
                   {/* date */}
                   <h3 className='text-sm font-light text-gray-500'>7 Maret 2024</h3>
