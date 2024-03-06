@@ -401,7 +401,7 @@ export default function About() {
                                     className="mySwiper2 mt-3"
                                 >
                                     <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[500px] max-h-screen rounded-xl' src={Logo} />
+                                    <Image alt="set" width={600} height={500} className='w-full h-[500px] max-h-screen rounded-xl' src={Dpp} />
                                     </SwiperSlide>
                                     <SwiperSlide>
                                     <Image alt="set" width={600} height={500} className='w-full h-[500px] max-h-screen rounded-xl' src={Logo} />

@@ -33,30 +33,30 @@ function ImageGallery() {
                                     className="mySwiper2 mt-3"
                                 >
                                     <SwiperSlide>
-                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                          <div className='w-full h-[340px] lg:h-[550px] bg-gray-400 rounded-xl'>
                                                 <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery1} />
                                           </div>
                                     
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                          <div className='w-full h-[340px] lg:h-[550px] bg-gray-400 rounded-xl'>
                                             <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery2} />
                                             </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                          <div className='w-full h-[340px] lg:h-[550px] bg-gray-400 rounded-xl'>
                                             <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery3} />
                                            
                                             </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                          <div className='w-full h-[340px] lg:h-[550px] bg-gray-400 rounded-xl'>
                                             <Image alt="set" width={600} height={450} className='object-cover w-full h-full rounded-xl' src={Gallery4} />
                                            
                                             </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
-                                          <div className='w-full h-[550px] bg-gray-400 rounded-xl'>
+                                          <div className='w-full h-[340px] lg:h-[550px] bg-gray-400 rounded-xl'>
                                             <Image alt="set" width={600} height={450} className='w-full h-full rounded-xl' src={Gallery5} />
                                            
                                             </div>

@@ -189,7 +189,7 @@ const [ref, inView] = useInView()
 
         </div>
         {/* kegiatan kedua */}
-        <div className="flex flex-col lg:flex-row space-y-8 items-end lg:items-center justify-between  lg:justify-between w-full p-4 bg-gray-300 h-[65vh]">
+        <div className="flex flex-col lg:flex-row space-y-8 items-end lg:items-center justify-between  lg:justify-between w-full p-4 bg-gray-300 h-[55vh]">
         <motion.h3 
           initial="offscreen"
           whileInView="onscreen"
@@ -214,7 +214,7 @@ const [ref, inView] = useInView()
           whileInView="onscreen"
           viewport={{ once: false, amount: 0.8 }}
           variants={titleVariant1}
-          className="text-5xl flex-[0.2] lg:flex-[0.35] font-bold text-gray-600 leading-[50px]">digitalisasi PERPENKA</motion.h1>
+          className="text-5xl flex-[0.2] lg:flex-[0.35] font-bold text-gray-600 leading-[50px]">Digitalisasi PERPENKA</motion.h1>
           <motion.h3 
           initial="offscreen"
           whileInView="onscreen"
@@ -230,10 +230,12 @@ const [ref, inView] = useInView()
       <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full h-[80%]">
-          <Card post="persiapan acara hut perpenka" judul="HUT PERPENKA 2024" thumbs="hut" />
-          {dashboardPost.map(post => (
+          <Card post="Acara Hut PERPENKA ke-57" judul="HUT PERPENKA 2024" thumbs="hut" />
+          <Card post="Halal Bihalal PERPENKA 2024" judul="Halal Bihalal PERPENKA 2024" thumbs="halalbihalal" />
+          <Card post="Detail Kemeja PERPENKA" judul="Kemeja Baru PERPENKA" thumbs="kemeja" />
+          {/* {dashboardPost.map(post => (
           <Card key={post.id} post={post.data.body} judul={post.data.title} thumbs="logo"  />
-          ))}
+          ))} */}
         </div>
       </div>
       {/* section 5 */}
@@ -246,23 +248,23 @@ const [ref, inView] = useInView()
             <div className="flex flex-col space-y-1">
               <div className="flex space-x-2 items-center">
                 <div className="bg-blue-400 h-[35px] w-1 rounded "></div>
-                <h1 className="text-2xl font-semibold text-gray-50">April</h1>
+                <h1 className="text-2xl font-semibold text-gray-50">Maret</h1>
               </div>
-              <p className="text-gray-50 ml-3 text-sm">Tidak ada Kegiatan.</p>
+              <p className="text-gray-50 ml-3 text-sm">HUT PERPENKA ke-57</p>
             </div>
             <div className="flex flex-col space-y-1">
               <div className="flex space-x-2 items-center">
                 <div className="bg-blue-400 h-[35px] w-1 rounded "></div>
-                <h1 className="text-2xl font-semibold text-gray-50">Tempat</h1>
+                <h1 className="text-2xl font-semibold text-gray-50">Tanggal</h1>
               </div>
-              <p className="text-gray-50 ml-3 text-sm">20 April 2024</p>
+              <p className="text-gray-50 ml-3 text-sm">7 Maret 2024</p>
             </div>
             <div className="flex flex-col space-y-1">
               <div className="flex space-x-2 items-center">
                 <div className="bg-blue-400 h-[35px] w-1 rounded "></div>
                 <h1 className="text-2xl font-semibold text-gray-50">Waktu</h1>
               </div>
-              <p className="text-gray-50 ml-3 text-sm">11:00 AM</p>
+              <p className="text-gray-50 ml-3 text-sm">00:00 AM</p>
             </div>
           </div>
           </div>

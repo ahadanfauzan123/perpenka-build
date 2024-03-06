@@ -69,23 +69,24 @@ function Navbar({isGray}: UseColorProps) {
         <a href='/' className="text-xl font-bold h-12 w-12">
           <Image src={Logo} alt="logo" className={`rounded-sm w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
         </a>
+        <h1 className='text-lg font-semibold text-[#1c2d8c]'>PERP<span className='text-[#ff7f00]'>ENKA</span></h1>
           </div>
         <div className="hidden lg:flex items-center justify-end space-x-5">
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
             <FiHome className={`text-lg ${showNavbar===false? 'hidden' : 'inline-flex'}`} />
-            <h3 className="text-md"><a href="./">home</a></h3>
+            <h3 className="text-md"><a href="/">home</a></h3>
           </div>
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
             <FiUsers className={`text-lg ${showNavbar===false? 'hidden' : 'inline-flex'}`} />
-            <h3 className="text-md"><a href="./about">profile</a></h3>
+            <h3 className="text-md"><a href="/about">profile</a></h3>
           </div>
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
             <TbNews className={`text-lg ${showNavbar===false? 'hidden' : 'inline-flex'}`} />
-            <h3 className="text-md"><a href="./news">berita</a></h3>
+            <h3 className="text-md"><a href="/news">berita</a></h3>
           </div>
           <div className='flex items-center space-x-1 hover:-translate-y-1 hover:font-semibold hover:text-blue-600 transition-all duration-300'>
             <IoImagesOutline className={`text-lg ${showNavbar===false? 'hidden' : 'inline-flex'}`} />
-            <h3 className="text-md"><a href="./gallery">galeri</a></h3>
+            <h3 className="text-md"><a href="/gallery">galeri</a></h3>
           </div>
           <motion.a
           whileHover={{ scale: 1.05 }}
