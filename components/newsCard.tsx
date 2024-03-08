@@ -14,24 +14,18 @@ type CounterProps = {
       post: string;
       slug: string;
       tanggal: string;
+      gambar: string
     };
 
-function NewsCard({judul, post, slug, tanggal}: CounterProps) {
+function NewsCard({judul, post, slug, tanggal, gambar}: CounterProps) {
   return (
       
       <div className="relative h-[500px] lg:h-[420px] flex flex-col lg:flex-row bg-clip-border rounded-xl bg-white text-gray-600 shadow-md w-full max-w-[100%]">
             <div
             className="h-[300px] lg:h-[420px] relative w-full lg:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-t-xl lg:rounded-t-none lg:rounded-r-none bg-clip-border rounded-xl shrink-0">
-                  {slug == "hut" ? (
-          <Image alt="hut" src={Thumbs1} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
-          ): (<></>)}
-        {slug == "kemeja" ?(
-            <Image alt="hut" src={Thumbs2} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
-        ) : (<></>) }
-        {slug == "halalbihalal" ?(
-            <Image alt="hut" src={Thumbs3} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
-        ) : (<></>) }
-                  </div>
+                  
+          <Image alt="hut" src={gambar} width={200} height={200} className='w-full h-full rounded-t-xl object-cover' />
+          </div>
                    <div className="p-6">
                   <h6
                         className="block mb-4 font-sans text-md antialiased font-semibold leading-relaxed tracking-normal text-gray-600 uppercase">

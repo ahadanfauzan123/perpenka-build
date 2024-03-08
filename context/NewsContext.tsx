@@ -72,8 +72,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
             const getPosts = async () => {
                   const articlesCollection = collection(db, 'articles');
                   const latestSnapshot = await query(articlesCollection,
-                        orderBy('postedOn', 'desc'),
-                        limit(3))
+                        orderBy('postedOn', 'desc'))
                   const querySnapshot = await getDocs(latestSnapshot)
                   setPosts(querySnapshot.docs.map(doc => {
                         return {
@@ -98,7 +97,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                   const articlesCollection = collection(db, 'articles');
                   const latestSnapshot = await query(articlesCollection,
                         orderBy('postedOn', 'desc'),
-                        limit(2))
+                        limit(3))
                   const querySnapshot = await getDocs(latestSnapshot);
                   setDashboardPost(querySnapshot.docs.map(doc => {
                         return {
@@ -124,15 +123,15 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                   const latestSnapshot = await query(articlesCollection,
                         where('role', '==' , 'gallery'),
                         orderBy('createdAt', 'desc'),
-                        limit(5))
+                        limit(10))
                   const querySnapshot = await getDocs(latestSnapshot);
                   setGalleryDashboard(querySnapshot.docs.map(doc => {
                         return {
                               id: doc.id,
                               data: {
-                                    body: doc.data().name,
-                                    brief: doc.data().url,
-                                    category: doc.data().role,
+                                    name: doc.data().name,
+                                    url: doc.data().url,
+                                    role: doc.data().role,
                               }
                         }
                   }))
@@ -151,9 +150,9 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                         return {
                               id: doc.id,
                               data: {
-                                    body: doc.data().name,
-                                    brief: doc.data().url,
-                                    category: doc.data().role,
+                                    name: doc.data().name,
+                                    url: doc.data().url,
+                                    role: doc.data().role,
                               }
                         }
                   }))

@@ -238,12 +238,12 @@ const [ref, inView] = useInView()
       <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full h-[80%]">
-          <Card post="Acara Hut PERPENKA ke-57" judul="Perayaan Hut ke-57 Perkumpulan Pensiunan Kereta Api (PERPENKA)" thumbs="hut" />
+          {/* <Card post="Acara Hut PERPENKA ke-57" judul="Perayaan Hut ke-57 Perkumpulan Pensiunan Kereta Api (PERPENKA)" thumbs="hut" />
           <Card post="Jejak Legenda Perjalanan Rel Ganda" judul="Halal Bihalal PERPENKA 2024" thumbs="halalbihalal" />
-          <Card post="Seragam Baru PERPENKA Mulai 7 Maret 2024" judul="Seragam Baru PERPENKA" thumbs="kemeja" />
-          {/* {dashboardPost.map(post => (
-          <Card key={post.id} post={post.data.body} judul={post.data.title} thumbs="logo"  />
-          ))} */}
+          <Card post="Seragam Baru PERPENKA Mulai 7 Maret 2024" judul="Seragam Baru PERPENKA" thumbs="kemeja" /> */}
+          {dashboardPost.map(post => (
+          <Card key={post.id} redirect={post.id} gambar={post.data.bannerImage} post={post.data.brief} judul={post.data.title} />
+          ))}
         </div>
       </div>
       {/* section 5 */}
@@ -313,7 +313,7 @@ const [ref, inView] = useInView()
       {/* section 6 */}
       <div className="w-screen mt-0 lg:mt-[80px] bg-[#ff7f00] flex flex-col items-center space-x-6 space-y-9 py-6 justify-center">
           <h1 className="text-3xl font-semibold text-gray-100">Profile PERPENKA</h1>
-        <GetVideo />
+        <GetVideo url="https://youtu.be/73s0X8uiwbk" />
             <a href="/about" className="text-white bg-[#1c2d8c] px-8 py-3 rounded-3xl"> learn more</a>
       
       </div>
