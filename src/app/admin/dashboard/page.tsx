@@ -7,11 +7,15 @@ import Topbar from '../../../../components/admin/topbar'
 import { NewsContext } from "../../../../context/NewsContext";
 import { useContext } from "react"
 import Table from '../../../../components/admin/tableUser'
+import ReactGA from "react-ga4";
 
 
 function AdminDashboard() {
   const {users} = useContext(NewsContext)
-  console.log(users)
+  ReactGA.initialize("G-FQ6V4E5T2S");
+  ReactGA.send({ hitType: "pageview", page: window.location.pathname, });
+
+  // console.log(users)
   return (
     <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>
       {/* sidebar */}

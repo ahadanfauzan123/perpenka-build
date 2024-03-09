@@ -85,19 +85,27 @@ function AddPhoto() {
                         {/* gallery panel */}
                         <Tab.Panel
                               className={classNames(
-                              'rounded-xl w-full p-3',
+                              'rounded-xl w-full p-3 flex flex-col space-y-5',
                               ' focus:outline-none'
                               )}
                               >
+                              <div className='flex items-center w-[60%] mx-auto space-x-3'>
+                                    <div className='w-1 h-[40px] rounded bg-blue-400'></div>
+                                    <h1 className='text-gray-600 text-3xl font-extrabold'>tambah foto gallery</h1>
+                              </div>
                               <AddPhotoGallery />
                         </Tab.Panel>
                         {/* gallery panel */}
                         <Tab.Panel
                               className={classNames(
-                              'rounded-xl w-full p-3',
+                              'rounded-xl w-full p-3 flex flex-col space-y-5',
                               ' focus:outline-none'
                               )}
                               >
+                              <div className='flex items-center w-[60%] mx-auto space-x-3'>
+                                    <div className='w-1 h-[40px] rounded bg-blue-400'></div>
+                                    <h1 className='text-gray-600 text-3xl font-extrabold'>tambah foto struktur</h1>
+                              </div>
                               <AddPhotoStruktur />
                         </Tab.Panel>
                         </Tab.Panels>

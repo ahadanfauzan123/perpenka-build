@@ -19,7 +19,7 @@ function DataBerita() {
             <Topbar />
             <div className='w-full flex flex-col space-y-5 mt-[90px] py-6 h-screen bg-blue-100'>
                   {/* header */}
-                  <div className='flex items-center w-[60%] mx-auto space-x-3'>
+                  <div className='flex items-center w-[80%] mx-auto space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
                               <h1 className='text-gray-600 text-3xl font-extrabold'>kelola berita</h1>
                   </div>
