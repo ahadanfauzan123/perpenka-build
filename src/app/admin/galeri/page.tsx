@@ -23,7 +23,7 @@ function ManageGallery() {
 
   useEffect(() => {
       if (!user) {
-        redirect("/");
+            window.location.href = "/";
       } else {
         console.log(user);
       }

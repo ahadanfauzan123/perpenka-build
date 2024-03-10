@@ -39,7 +39,7 @@ export default function AddAgenda() {
 
   
     if (!user) {
-      redirect("/");
+      window.location.href = "/";
     } else {
       console.log(user);
     }
