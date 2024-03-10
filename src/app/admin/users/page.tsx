@@ -7,11 +7,21 @@ import Topbar from '../../../../components/admin/topbar'
 import { NewsContext } from "../../../../context/NewsContext";
 import { useContext } from "react"
 import Table from '../../../../components/admin/tableUser'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../../../firebase'
+import { useRouter } from 'next/navigation'
 
 
 function DataUser() {
   const {users} = useContext(NewsContext)
-  console.log(users)
+  const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
   return (
     <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>
       {/* sidebar */}

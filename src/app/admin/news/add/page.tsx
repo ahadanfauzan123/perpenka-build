@@ -26,7 +26,9 @@ import {
       CircularProgress,
       Textarea,
     } from '@chakra-ui/react'
-
+    import { useAuthState } from 'react-firebase-hooks/auth'
+    import { useRouter } from 'next/navigation'
+    import { auth } from '../../../../../firebase'
 
 
 function AddNews() {
@@ -37,12 +39,19 @@ function AddNews() {
       const [postLength, setPostLength] = useState<string>('');
       const [category, setCategory] = useState<string>('');
       const [urlVideo, setUrlVideo] = useState<string>('');
-
       const [image, setImage] = useState<File | null>(null);
       const { isOpen, onOpen, onClose } = useDisclosure()
       const [selectedImage, setSelectedImage] = useState<string | ArrayBuffer | null>(null);
       const [isLoading, setIsLoading] = useState<boolean>(false)
       const [progressValue, setProgressValue] = useState<number>(0)
+      const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
 
       const inputRef = useRef<HTMLInputElement>(null);
 
@@ -164,7 +173,7 @@ function AddNews() {
                   <Text mb='8px'>title</Text>
                   <Input
                   value={title}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='title..'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   size='sm'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)}
@@ -175,7 +184,7 @@ function AddNews() {
                   <Text mb='8px'>brief</Text>
                   <Input
                   value={brief}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='brief..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setBrief(event.target.value)}
@@ -186,7 +195,7 @@ function AddNews() {
                   <Text mb='8px'>category</Text>
                   <Input
                   value={category}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='category..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCategory(event.target.value)}
@@ -197,7 +206,7 @@ function AddNews() {
                   <Text mb='8px'>author</Text>
                   <Input
                   value={author}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='author..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setAuthor(event.target.value)}
@@ -208,7 +217,7 @@ function AddNews() {
                   <Text mb='8px'>body</Text>
                   <Textarea
                   value={body}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='body..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setBody(event.target.value)}
@@ -219,7 +228,7 @@ function AddNews() {
                   <Text mb='8px'>Durasi Baca</Text>
                   <Input
                   value={postLength}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='durasi..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPostLength(event.target.value)}
@@ -230,7 +239,7 @@ function AddNews() {
                   <Text mb='8px'>Link Youtube(optional)</Text>
                   <Input
                   value={urlVideo}
-                  placeholder='Here is a sample placeholder'
+                  placeholder='link..'
                   size='sm'
                   className=' w-[300px] h-[60px] rounded-lg bg-white border-0 outline-0 ring-0'
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUrlVideo(event.target.value)}

@@ -12,6 +12,9 @@ import { db } from '../../../../firebase'
 import { NewsContext } from '../../../../context/NewsContext'
 import Sidebar from '../../../../components/admin/sidebar'
 import Topbar from '../../../../components/admin/topbar'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../../../firebase'
 
 
 interface Event {
@@ -31,6 +34,14 @@ interface Event {
 // }
 
 export default function AddAgenda() {
+  const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
   const [allEvents, setAllEvents] = useState<Event[]>([])
   const [showModal, setShowModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)

@@ -4,7 +4,9 @@ import Sidebar from '../../../../../components/admin/sidebar'
 import Topbar from '../../../../../components/admin/topbar'
 import AddPhotoBanner from '../../../../../components/admin/addPhotoBanner';
 import AddPhotoGallery from '../../../../../components/admin/addPhotoGallery';
-
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../../../../firebase'
 import { Tab } from '@headlessui/react'
 import AddPhotoStruktur from '../../../../../components/admin/addPhotoStruktur';
 
@@ -13,6 +15,14 @@ function classNames(...classes: (string | undefined | null | false | 0)[]) {
 }
 
 function AddPhoto() {
+      const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
       
   return (
       <div className='w-screen min-h-screen bg-blue-100 flex text-gray-600'>

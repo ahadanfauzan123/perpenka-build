@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../../../../components/admin/sidebar'
 import Topbar from '../../../../components/admin/topbar'
 
@@ -9,17 +9,29 @@ import { useContext } from "react"
 import Table from '../../../../components/admin/tableUser'
 // import ReactGA from "react-ga4";
 import { sendGAEvent } from '@next/third-parties/google'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../../../firebase'
 // import GoogleAnalytics from '../../../../components/admin/GoogleAnalytics'
 
 
 function AdminDashboard() {
   const {users} = useContext(NewsContext)
+  const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
+  
   // ReactGA.initialize("G-FQ6V4E5T2S");
   // ReactGA.send({ hitType: "pageview", page: window.location.pathname, });
 
   // console.log(users)
   return (
-    <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>
+    <div className='w-screen min-h-screen bg-blue-200 flex text-gray-600'>
       {/* sidebar */}
       <Sidebar />
       <div className="w-[80%] min-h-screen ml-auto flex flex-col ">

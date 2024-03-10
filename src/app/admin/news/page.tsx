@@ -25,6 +25,9 @@ import { NewsContext } from '../../../../context/NewsContext'
 import Image from 'next/image'
 import { deleteDoc, doc, getDoc, updateDoc, Timestamp } from 'firebase/firestore'
 import { db } from '../../../../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../../../firebase'
 
 interface ArticleData {
       id: string;
@@ -42,6 +45,7 @@ interface ArticleData {
   }
 
 function DataBerita() {
+
   const {posts} = useContext(NewsContext)
   const [idToDelete, setIdToDelete] = useState<string>("")
   const [idToEdit, setIdToEdit] = useState<string>("")
@@ -49,6 +53,14 @@ const [progress, setProgress] = useState<boolean>(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [articleData, setArticleData] = useState<ArticleData | null>(null);
+  const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
 
   const handleDeleteClick = (id: string) => {
       setIdToDelete(id);
@@ -208,7 +220,7 @@ const handleDelete = async (id: string) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{idToEdit}</ModalHeader>
+          <ModalHeader>Edit..</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             {/* title */}
@@ -279,7 +291,7 @@ const handleDelete = async (id: string) => {
         <Modal isOpen={isLoading} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-            <ModalHeader>Konfirmasi {idToDelete}..</ModalHeader>
+            <ModalHeader>Konfirmasi..</ModalHeader>
             <ModalCloseButton className="hover:bg-red-400" onClick={()=>setIsLoading(false)} />
             <ModalBody className="flex items-center justify-center my-[18px] ">
                   yakin ingin hapus

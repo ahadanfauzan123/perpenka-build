@@ -123,7 +123,7 @@ body {
   text-align: center;
   text-decoration: none;
 }
-button {
+/* button {
   margin: 3px;
   background-color: #6f876f;
   border: 0;
@@ -138,4 +138,4 @@ button {
   &:active {
     background-color: #4289e6;
   }
-}
+} */

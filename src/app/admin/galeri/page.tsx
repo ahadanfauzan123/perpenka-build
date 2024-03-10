@@ -9,12 +9,23 @@ import DataGallery from '../../../../components/admin/dataGallery'
 import PaginatedItems from '../../../../components/admin/dataBanner'
 import GalleryPaginatedItems from '../../../../components/admin/dataGallery'
 import StrukturPaginatedItems from '../../../../components/admin/dataStruktur'
-
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../../../firebase'
 function classNames(...classes: (string | undefined | null | false | 0)[]) {
       return classes.filter(Boolean).join(' ')
 }
 
 function ManageGallery() {  
+      
+  const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/404")
+    } else {
+      console.log(user)
+    }
   return (
       <div className='w-screen min-h-screen bg-blue-100 flex text-gray-600'>
             {/* sidebar */}
