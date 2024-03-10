@@ -24,16 +24,8 @@ function LoginAdmin() {
             } else {
                 router.push("/admin/dashboard")
             }
-        } catch (e: unknown) {
-            if (e instanceof FirebaseError) {
-                if (e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
-                    alert('Email atau kata sandi yang dimasukkan salah');
-                } else {
-                    alert('Terjadi kesalahan saat mencoba masuk: ' + e.message);
-                }
-            } else {
-                console.error('Terjadi kesalahan: ', e);
-            }
+        } catch (e) {
+            console.error(e)
         }
     }
   return (

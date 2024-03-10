@@ -45,6 +45,14 @@ interface ArticleData {
   }
 
 function DataBerita() {
+      const [user] = useAuthState(auth)
+  const router = useRouter()
+
+    if(!user){
+      router.push("/")
+    } else {
+      console.log(user)
+    }
 
   const {posts} = useContext(NewsContext)
   const [idToDelete, setIdToDelete] = useState<string>("")
@@ -53,14 +61,7 @@ const [progress, setProgress] = useState<boolean>(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [articleData, setArticleData] = useState<ArticleData | null>(null);
-  const [user] = useAuthState(auth)
-  const router = useRouter()
-
-    if(!user){
-      router.push("/404")
-    } else {
-      console.log(user)
-    }
+  
 
   const handleDeleteClick = (id: string) => {
       setIdToDelete(id);

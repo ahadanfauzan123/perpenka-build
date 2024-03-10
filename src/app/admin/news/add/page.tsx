@@ -32,6 +32,14 @@ import {
 
 
 function AddNews() {
+      const [user] = useAuthState(auth)
+      const router = useRouter()
+
+      if(!user){
+            router.push("/")
+      } else {
+            console.log(user)
+      }
       const [title, setTitle] = useState<string>('');
       const [body, setBody] = useState<string>('');
       const [brief, setBrief] = useState<string>('');
@@ -44,14 +52,7 @@ function AddNews() {
       const [selectedImage, setSelectedImage] = useState<string | ArrayBuffer | null>(null);
       const [isLoading, setIsLoading] = useState<boolean>(false)
       const [progressValue, setProgressValue] = useState<number>(0)
-      const [user] = useAuthState(auth)
-  const router = useRouter()
-
-    if(!user){
-      router.push("/404")
-    } else {
-      console.log(user)
-    }
+      
 
       const inputRef = useRef<HTMLInputElement>(null);
 

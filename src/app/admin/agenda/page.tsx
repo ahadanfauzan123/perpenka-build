@@ -38,7 +38,7 @@ export default function AddAgenda() {
   const router = useRouter()
 
     if(!user){
-      router.push("/404")
+      router.push("/")
     } else {
       console.log(user)
     }
