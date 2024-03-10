@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../../../../components/admin/sidebar'
 import Topbar from '../../../../components/admin/topbar'
 
@@ -17,11 +17,13 @@ function DataUser() {
   const [user] = useAuthState(auth)
   const router = useRouter()
 
-    if(!user){
-      router.push("/")
+  useEffect(() => {
+    if (!user) {
+      router.push("/");
     } else {
-      console.log(user)
+      console.log(user);
     }
+  }, [user, router]);
   return (
     <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>
       {/* sidebar */}

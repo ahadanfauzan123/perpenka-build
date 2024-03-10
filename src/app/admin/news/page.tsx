@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Fragment } from 'react'
 import Sidebar from '../../../../components/admin/sidebar'
 import Topbar from '../../../../components/admin/topbar'
@@ -48,11 +48,13 @@ function DataBerita() {
       const [user] = useAuthState(auth)
   const router = useRouter()
 
-    if(!user){
-      router.push("/")
-    } else {
-      console.log(user)
-    }
+  useEffect(() => {
+      if (!user) {
+        router.push("/");
+      } else {
+        console.log(user);
+      }
+    }, [user, router]);
 
   const {posts} = useContext(NewsContext)
   const [idToDelete, setIdToDelete] = useState<string>("")

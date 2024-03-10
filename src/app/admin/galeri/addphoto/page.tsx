@@ -1,5 +1,5 @@
 "use client"
-import React, {useState, ChangeEvent} from 'react'
+import React, {useState, useEffect, ChangeEvent} from 'react'
 import Sidebar from '../../../../../components/admin/sidebar'
 import Topbar from '../../../../../components/admin/topbar'
 import AddPhotoBanner from '../../../../../components/admin/addPhotoBanner';
@@ -18,11 +18,13 @@ function AddPhoto() {
       const [user] = useAuthState(auth)
   const router = useRouter()
 
-    if(!user){
-      router.push("/404")
-    } else {
-      console.log(user)
-    }
+  useEffect(() => {
+      if (!user) {
+        router.push("/");
+      } else {
+        console.log(user);
+      }
+    }, [user, router]);
       
   return (
       <div className='w-screen min-h-screen bg-blue-100 flex text-gray-600'>

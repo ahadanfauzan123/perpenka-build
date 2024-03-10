@@ -3,8 +3,6 @@ import React, {useState} from 'react'
 import {useSignInWithEmailAndPassword} from "react-firebase-hooks/auth"
 import { auth } from '../../../../firebase'
 import { redirect, useRouter } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
-import { FirebaseError } from 'firebase/app'
 
 
 

@@ -20,11 +20,13 @@ function AdminDashboard() {
   const [user] = useAuthState(auth)
   const router = useRouter()
 
-    if(!user){
-      router.push("/")
+  useEffect(() => {
+    if (!user) {
+      router.push("/");
     } else {
-      console.log(user)
+      console.log(user);
     }
+  }, [user, router]);
   
   // ReactGA.initialize("G-FQ6V4E5T2S");
   // ReactGA.send({ hitType: "pageview", page: window.location.pathname, });

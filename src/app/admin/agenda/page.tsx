@@ -37,11 +37,13 @@ export default function AddAgenda() {
   const [user] = useAuthState(auth)
   const router = useRouter()
 
-    if(!user){
-      router.push("/")
+  useEffect(() => {
+    if (!user) {
+      router.push("/");
     } else {
-      console.log(user)
+      console.log(user);
     }
+  }, [user, router]);
   const [allEvents, setAllEvents] = useState<Event[]>([])
   const [showModal, setShowModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)

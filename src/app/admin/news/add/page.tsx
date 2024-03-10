@@ -1,5 +1,5 @@
 "use client"
-import React, { ChangeEvent, DragEvent, FormEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, DragEvent, FormEvent, useRef, useState, useEffect } from 'react'
 import Sidebar from '../../../../../components/admin/sidebar';
 import Topbar from '../../../../../components/admin/topbar';
 import Image from 'next/image';
@@ -35,11 +35,13 @@ function AddNews() {
       const [user] = useAuthState(auth)
       const router = useRouter()
 
-      if(!user){
-            router.push("/")
-      } else {
-            console.log(user)
-      }
+      useEffect(() => {
+            if (!user) {
+              router.push("/");
+            } else {
+              console.log(user);
+            }
+      }, [user, router]);
       const [title, setTitle] = useState<string>('');
       const [body, setBody] = useState<string>('');
       const [brief, setBrief] = useState<string>('');
