@@ -8,6 +8,8 @@ import { NewsContext } from "../../../../context/NewsContext";
 import { useContext } from "react"
 import Table from '../../../../components/admin/tableUser'
 // import ReactGA from "react-ga4";
+import { sendGAEvent } from '@next/third-parties/google'
+// import GoogleAnalytics from '../../../../components/admin/GoogleAnalytics'
 
 
 function AdminDashboard() {
@@ -40,6 +42,7 @@ function AdminDashboard() {
                 {/* <Chart /> */}
                 {/* history table */}
                 <Table/>
+                {/* <GoogleAnalytics /> */}
                 {/* product list limit + button */}
             </div>
             <div>
