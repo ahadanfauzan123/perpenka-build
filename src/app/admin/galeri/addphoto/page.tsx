@@ -5,7 +5,7 @@ import Topbar from '../../../../../components/admin/topbar'
 import AddPhotoBanner from '../../../../../components/admin/addPhotoBanner';
 import AddPhotoGallery from '../../../../../components/admin/addPhotoGallery';
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { auth } from '../../../../../firebase'
 import { Tab } from '@headlessui/react'
 import AddPhotoStruktur from '../../../../../components/admin/addPhotoStruktur';
@@ -20,7 +20,7 @@ function AddPhoto() {
 
   
       if (!user) {
-        router.push("/");
+        redirect("/");
       } else {
         console.log(user);
       }

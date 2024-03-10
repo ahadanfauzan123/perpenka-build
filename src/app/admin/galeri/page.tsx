@@ -10,7 +10,7 @@ import PaginatedItems from '../../../../components/admin/dataBanner'
 import GalleryPaginatedItems from '../../../../components/admin/dataGallery'
 import StrukturPaginatedItems from '../../../../components/admin/dataStruktur'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { auth } from '../../../../firebase'
 function classNames(...classes: (string | undefined | null | false | 0)[]) {
       return classes.filter(Boolean).join(' ')
@@ -23,7 +23,7 @@ function ManageGallery() {
 
   useEffect(() => {
       if (!user) {
-        router.push("/");
+        redirect("/");
       } else {
         console.log(user);
       }

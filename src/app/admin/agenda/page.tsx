@@ -13,7 +13,7 @@ import { NewsContext } from '../../../../context/NewsContext'
 import Sidebar from '../../../../components/admin/sidebar'
 import Topbar from '../../../../components/admin/topbar'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { auth } from '../../../../firebase'
 
 
@@ -39,7 +39,7 @@ export default function AddAgenda() {
 
   
     if (!user) {
-      router.push("/");
+      redirect("/");
     } else {
       console.log(user);
     }

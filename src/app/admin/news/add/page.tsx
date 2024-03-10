@@ -27,7 +27,7 @@ import {
       Textarea,
     } from '@chakra-ui/react'
     import { useAuthState } from 'react-firebase-hooks/auth'
-    import { useRouter } from 'next/navigation'
+    import { redirect, useRouter } from 'next/navigation'
     import { auth } from '../../../../../firebase'
 
 
@@ -37,7 +37,7 @@ function AddNews() {
 
       
             if (!user) {
-              router.push("/");
+              redirect("/");
             } else {
               console.log(user);
             }

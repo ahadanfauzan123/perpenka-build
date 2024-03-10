@@ -10,7 +10,7 @@ import Table from '../../../../components/admin/tableUser'
 // import ReactGA from "react-ga4";
 import { sendGAEvent } from '@next/third-parties/google'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { auth } from '../../../../firebase'
 // import GoogleAnalytics from '../../../../components/admin/GoogleAnalytics'
 
@@ -22,7 +22,7 @@ function AdminDashboard() {
 
   
     if (!user) {
-      router.push("/");
+      redirect("/");
     } else {
       console.log(user);
     }

@@ -26,7 +26,7 @@ import Image from 'next/image'
 import { deleteDoc, doc, getDoc, updateDoc, Timestamp } from 'firebase/firestore'
 import { db } from '../../../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { auth } from '../../../../firebase'
 
 interface ArticleData {
@@ -50,7 +50,7 @@ function DataBerita() {
 
 
       if (!user) {
-        router.push("/");
+        redirect("/");
       } else {
         console.log(user);
       }

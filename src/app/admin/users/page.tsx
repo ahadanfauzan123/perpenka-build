@@ -9,7 +9,7 @@ import { useContext } from "react"
 import Table from '../../../../components/admin/tableUser'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../../../firebase'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 
 
 function DataUser() {
@@ -19,7 +19,7 @@ function DataUser() {
 
  
     if (!user) {
-      router.push("/");
+      redirect("/");
     } else {
       console.log(user);
     }
