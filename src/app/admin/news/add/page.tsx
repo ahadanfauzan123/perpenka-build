@@ -35,13 +35,13 @@ function AddNews() {
       const [user] = useAuthState(auth)
       const router = useRouter()
 
-      useEffect(() => {
+      
             if (!user) {
               router.push("/");
             } else {
               console.log(user);
             }
-      }, [user, router]);
+      
       const [title, setTitle] = useState<string>('');
       const [body, setBody] = useState<string>('');
       const [brief, setBrief] = useState<string>('');

@@ -17,13 +17,13 @@ function DataUser() {
   const [user] = useAuthState(auth)
   const router = useRouter()
 
-  useEffect(() => {
+ 
     if (!user) {
       router.push("/");
     } else {
       console.log(user);
     }
-  }, [user, router]);
+  
   return (
     <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>
       {/* sidebar */}

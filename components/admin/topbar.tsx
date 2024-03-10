@@ -5,23 +5,14 @@ import { Menu, Transition } from '@headlessui/react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 type CounterProps = {
       users: string;
     };
 
 function Topbar() {
-      const router = useRouter()
-      const handleSignOut = async () => {
-            try {
-              await signOut(auth);
-              // Redirect ke halaman admin setelah logout
-                  router.push('/admin/adminLogin');
-            } catch (error) {
-              console.error('Error during sign out:', error);
-            }
-          };
+      
   return (
       <div className='z-30 bg-white w-full xl:w-[80%] ml-auto h-[90px] px-6 fixed top-0 right-0 flex items-center justify-between'>
             <div className=" h-[40px] w-2 bg-gray-400">
@@ -70,7 +61,7 @@ function Topbar() {
                         <Menu.Item>
                         {({ active }) => (
                               <button
-                              onClick={handleSignOut}
+                              onClick={() => signOut(auth)}
                               className={`${
                               active ? 'bg-red-300 text-white' : 'text-gray-50 bg-red-500'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm`}

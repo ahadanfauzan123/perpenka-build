@@ -18,13 +18,13 @@ function AddPhoto() {
       const [user] = useAuthState(auth)
   const router = useRouter()
 
-  useEffect(() => {
+  
       if (!user) {
         router.push("/");
       } else {
         console.log(user);
       }
-    }, [user, router]);
+    
       
   return (
       <div className='w-screen min-h-screen bg-blue-100 flex text-gray-600'>

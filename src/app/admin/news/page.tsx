@@ -48,13 +48,13 @@ function DataBerita() {
       const [user] = useAuthState(auth)
   const router = useRouter()
 
-  useEffect(() => {
+
       if (!user) {
         router.push("/");
       } else {
         console.log(user);
       }
-    }, [user, router]);
+
 
   const {posts} = useContext(NewsContext)
   const [idToDelete, setIdToDelete] = useState<string>("")
