@@ -35,6 +35,7 @@ function NewsCard({judul, post, slug, tanggal, gambar}: CounterProps) {
                               month: "short",
                         }
                         )} */}
+                        {tanggal}
                   </h6>
                   <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                         {judul}

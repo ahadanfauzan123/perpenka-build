@@ -24,6 +24,7 @@ interface ArticleData {
 }
 
 function Read({ params }: { params: { newsId: string } }) {
+    const [tanggal, setTanggal] = useState<string>("")
     const [articleData, setArticleData] = useState<ArticleData | null>(null);
 
     useEffect(() => {
@@ -46,6 +47,8 @@ function Read({ params }: { params: { newsId: string } }) {
                             urlVideo: string;
                         },
                     });
+                    const getDate = articleDocSnap.data();
+                    setTanggal(getDate.postedOn.toDate().toLocaleString("id-ID"));
                 } else {
                     console.log('Dokumen tidak ditemukan!');
                 }
@@ -70,7 +73,7 @@ function Read({ params }: { params: { newsId: string } }) {
         <div className='w-full py-4 bg-white'>
         <div className='flex flex-col space-y-2 w-[80vw] mx-auto'>
             {/* date */}
-            <h3 className='text-sm font-light text-gray-500'>7 Maret 2024</h3>
+            <h3 className='text-sm font-light text-gray-500'>{tanggal}</h3>
             {/* title */}
             <h1 className='text-2xl font-semibold text-gray-500'>{articleData.data.title}</h1>
             {/* author */}

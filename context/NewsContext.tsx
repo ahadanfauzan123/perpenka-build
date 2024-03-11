@@ -59,8 +59,8 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                               data: {
                                     name: doc.data().name,
                                     description: doc.data().description,
-                                    startDate: doc.data().startDate,
-                                    dueDate: doc.data().DueDate,
+                                    startDate: doc.data().startDate.toDate().toLocaleString('id-ID'),
+                                    DueDate: doc.data().DueDate.toDate().toLocaleString('id-ID'),//mark
                               }
                         }
                   }))
@@ -83,7 +83,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                                     category: doc.data().category,
                                     bannerImage: doc.data().bannerImage,
                                     title: doc.data().title,
-                                    postedOn: doc.data().postedOn,
+                                    postedOn: doc.data().postedOn.toDate().toLocaleString("id-ID"),
                                     author: doc.data().author,
                               }
                         }

@@ -52,6 +52,7 @@ export default function Home() {
 const [ref, inView] = useInView()
   const [value, onChange] = useState<Value>(new Date());
   const { scrollYProgress } = useScroll();
+  console.log("🔴" + value)
   const cardVariants: Variants = {
     offscreen: {
       x: -80

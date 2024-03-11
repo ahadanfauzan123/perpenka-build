@@ -1,8 +1,8 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react'
 import { Fragment } from 'react'
-import Sidebar from '../../../../components/admin/sidebar'
-import Topbar from '../../../../components/admin/topbar'
+import Sidebar from '../../../../../components/admin/sidebar'
+import Topbar from '../../../../../components/admin/topbar'
 
 import {
       ChakraProvider,
@@ -21,38 +21,33 @@ import {
       CircularProgressLabel,
       Textarea
     } from '@chakra-ui/react'
-import { NewsContext } from '../../../../context/NewsContext'
+import { NewsContext } from '../../../../../context/NewsContext'
 import Image from 'next/image'
 import { deleteDoc, doc, getDoc, updateDoc, Timestamp } from 'firebase/firestore'
-import { db } from '../../../../firebase'
+import { db } from '../../../../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { redirect, useRouter } from 'next/navigation'
-import { auth } from '../../../../firebase'
+import { auth } from '../../../../../firebase'
 
 interface ArticleData {
       id: string;
       data: {
-          body: string;
-          brief: string;
-          category: string;
-          bannerImage: string;
-          title: string;
-          postLength: string;
-          postedOn: string;
-          author: string;
-          urlVideo: string;
+          DueDate: Timestamp;
+          description: string;
+          name: string;
+          startDate: Timestamp;
       };
   }
 
-function DataBerita() {
+function DataAgenda() {
 
-  const {posts} = useContext(NewsContext)
+  const {agendas} = useContext(NewsContext)
   const [idToDelete, setIdToDelete] = useState<string>("")
   const [idToEdit, setIdToEdit] = useState<string>("")
   const [progress, setProgress] = useState<boolean>(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [articleData, setArticleData] = useState<ArticleData | null>(null);
+  const [agendaData, setAgendaData] = useState<ArticleData | null>(null);
   
 
   const handleDeleteClick = (id: string) => {
@@ -62,7 +57,7 @@ function DataBerita() {
   const handleDelete = async (id: string) => {
       setProgress(true)
       try {
-        await deleteDoc(doc(db, 'articles', id));
+        await deleteDoc(doc(db, 'agenda', id));
         setIsLoading(false)
         setProgress(false)
       } catch (error) {
@@ -75,22 +70,17 @@ function DataBerita() {
         try {
             setIdToEdit(id);
             onOpen();
-            const articleDocRef = doc(db, 'articles', id);
-            const articleDocSnap = await getDoc(articleDocRef);
+            const agendaDocRef = doc(db, 'agenda', id);
+            const agendaDocSnap = await getDoc(agendaDocRef);
             
-            if (articleDocSnap.exists()) {
-                setArticleData({
-                    id: articleDocSnap.id,
-                    data: articleDocSnap.data() as {
-                        body: string;
-                        brief: string;
-                        category: string;
-                        bannerImage: string;
-                        title: string;
-                        postLength: string;
-                        postedOn: string;
-                        author: string;
-                        urlVideo: string;
+            if (agendaDocSnap.exists()) {
+                setAgendaData({
+                    id: agendaDocSnap.id,
+                    data: agendaDocSnap.data() as {
+                        DueDate: Timestamp;
+                        description: string;
+                        name: string;
+                        startDate: Timestamp;
                     },
                 });
             } else {
@@ -103,16 +93,13 @@ function DataBerita() {
     };
     const handleEditSubmit = async () => {
       try {
-        if (articleData) {
-          const articleDocRef = doc(db, 'articles', articleData.id);
-          await updateDoc(articleDocRef, {
-            body: articleData.data.body,
-            brief: articleData.data.brief,
-            category: articleData.data.category,
-            author: articleData.data.author,
-            postLength: articleData.data.postLength,
-            title: articleData.data.title,
-            urlVideo: articleData.data.urlVideo,
+        if (agendaData) {
+          const agendaDocRef = doc(db, 'agenda', agendaData.id);
+          await updateDoc(agendaDocRef, {
+            DueDate: agendaData.data.DueDate,
+            description: agendaData.data.description,
+            name: agendaData.data.name,
+            startDate: agendaData.data.startDate,
           });
           onClose();
         }
@@ -121,13 +108,13 @@ function DataBerita() {
         // Handle error
       }
     };
-    const handleChange = (key: string, value: string) => {
-      if (articleData) {
-          setArticleData((prevState) => ({
+    const handleChange = (key: string, value: string | Timestamp) => {
+      if (agendaData) {
+          setAgendaData((prevState) => ({
               ...prevState!,
               data: {
                   ...prevState!.data,
-                  [key]: value,
+                  [key]: typeof value === 'string' ? value : value,
               },
           }));
       }
@@ -146,7 +133,7 @@ function DataBerita() {
                   {/* header */}
                   <div className='flex items-center w-[80%] mx-auto space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
-                              <h1 className='text-gray-600 text-3xl font-extrabold'>kelola berita</h1>
+                              <h1 className='text-gray-600 text-3xl font-extrabold'>Kelola Agenda</h1>
                   </div>
                   {/* body */}
                   <div className='w-full flex flex-col space-y-5 mx-auto'>
@@ -155,16 +142,13 @@ function DataBerita() {
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                               <tr>
                               <th scope="col" className="px-6 py-3">
-                                    Banner
+                                    Start
                               </th>
                               <th scope="col" className="px-6 py-3">
-                                    Judul
+                                    End
                               </th>
                               <th scope="col" className="px-6 py-3">
-                                    Kategori
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                    Token
+                                    Agenda
                               </th>
                               <th scope="col" className="px-6 py-3">
                                     <span className="sr-only">Edit</span>
@@ -172,29 +156,26 @@ function DataBerita() {
                               </tr>
                         </thead>
                         <tbody>
-                        {posts.map(post => (
-                              <tr key={post.id} className="w-full bg-white border-b hover:bg-gray-50 ">
+                        {agendas.map(agenda => (
+                              <tr key={agenda.id} className="w-full bg-white border-b hover:bg-gray-50 ">
                                     <td className="w-[0.15] px-6 py-4 flex items-center justify-center">
-                                          <Image src={post.data.bannerImage} alt="banner" width={100} height={100} className="w-[50px] h-[50px] rounded-lg" />
+                                    <h1 className="truncate">
+                                                {agenda.data.startDate}
+                                          </h1>
                                     </td>
                                     <th scope="row" className="w-[0.25] px-6 py-4 truncate font-medium text-gray-900">
                                           <h1 className="truncate">
-                                                {post.data.title}
+                                                {agenda.data.DueDate}
                                           </h1>
                                     </th>
                                     <td className="w-[0.2] px-6 py-4 truncate">
                                           <h1 className="w-full truncate">
-                                                {post.data.category}
-                                          </h1>
-                                    </td>
-                                    <td className="w-[0.2] px-6 py-4 truncate">
-                                          <h1 className="w-full truncate">
-                                                {post.id}
+                                                {agenda.data.name}
                                           </h1>
                                     </td>
                                     <td className="w-[0.2] px-6 py-4 text-right flex items-center justify-center space-x-3">
-                                          <button onClick={() => handleEditClick(post.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
-                                          <button onClick={() => handleDeleteClick(post.id)} className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                                          <button onClick={() => handleEditClick(agenda.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                                          <button onClick={() => handleDeleteClick(agenda.id)} className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
                                     </td>
                               </tr>
                               ))}
@@ -217,54 +198,35 @@ function DataBerita() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             {/* title */}
-            {articleData && (
+            {agendaData && (
             <form className="w-full">
             <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">title</h1>
-                  <Input value={articleData.data.title} placeholder='title..'
-                  onChange={(e) => handleChange('title', e.target.value)}
+                  <h1 className="text-gray-500 font-light text-lg">Judul</h1>
+                  <Input value={agendaData.data.name} placeholder='Judul..'
+                  onChange={(e) => handleChange('name', e.target.value)}
                    />
             </div>
              {/* brief */}
             <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">brief</h1>
-                  <Input value={articleData?.data.brief} placeholder='brief..' 
-                  onChange={(e) => handleChange('brief', e.target.value)}
+                  <h1 className="text-gray-500 font-light text-lg">Deskripsi</h1>
+                  <Input value={agendaData?.data.description} placeholder='deskripsi..' 
+                  onChange={(e) => handleChange('description', e.target.value)}
                   />
             </div>
              {/* category */}
             <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">category</h1>
-                  <Input value={articleData.data.category} placeholder='category..' 
-                  onChange={(e) => handleChange('category', e.target.value)}
+                  <h1 className="text-gray-500 font-light text-lg">Tanggal Mulai</h1>
+                  <Input type='datetime-local' value={new Date(agendaData.data.startDate.seconds * 1000).toISOString().substr(0, 16)}
+                  placeholder='category..' 
+                  onChange={(e) => handleChange('startDate', Timestamp.fromDate(new Date(e.target.value)))}
                   />
             </div>
              {/* author */}
             <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">author</h1>
-                  <Input value={articleData.data.author} placeholder='author..' 
-                  onChange={(e) => handleChange('author', e.target.value)}
-                  />
-            </div>
-             {/* body */}
-            <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">body</h1>
-                  <Textarea value={articleData.data.body} placeholder='body..' 
-                  onChange={(e) => handleChange('body', e.target.value)}
-                  />
-            </div>
-             {/* post Length */}
-            <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">post length</h1>
-                  <Input value={articleData.data.postLength} placeholder='post length..' 
-                  onChange={(e) => handleChange('postLength', e.target.value)}
-                  />
-            </div>
-             {/* video */}
-            <div className='my-3 flex-flex-col space-y-2'>
-                  <h1 className="text-gray-500 font-light text-lg">link youtube</h1>
-                  <Input value={articleData.data.urlVideo} placeholder='link..' 
-                  onChange={(e) => handleChange('urlVideo', e.target.value)}
+                  <h1 className="text-gray-500 font-light text-lg">Tanggal Selesai</h1>
+                  <Input type='datetime-local' value={new Date(agendaData.data.DueDate.seconds * 1000).toISOString().substr(0, 16)}
+                  placeholder='author..' 
+                  onChange={(e) => handleChange('DueDate', Timestamp.fromDate(new Date(e.target.value)))}
                   />
             </div>
             </form>
@@ -315,4 +277,4 @@ function DataBerita() {
   )
 }
 
-export default DataBerita
+export default DataAgenda

@@ -10,6 +10,7 @@ import { LuNewspaper } from "react-icons/lu";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import { HiOutlineBellAlert } from "react-icons/hi2";
+import { IoImagesOutline } from "react-icons/io5";
 import Image from 'next/image';
 
 function Sidebar() {
@@ -81,14 +82,14 @@ function Sidebar() {
                         />
                         </Disclosure.Button>
                         <Disclosure.Panel className="pl-4 text-sm text-gray-500 flex flex-col space-y-1">
+                              <a href="/admin/agenda/data" className='flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
+                                    <IoCalendarOutline className='h-4 w-4' />
+                                    <h3>data agenda</h3>
+                              </a>
                               <a href="/admin/agenda" className='flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
                                     <IoCalendarOutline className='h-4 w-4' />
                                     <h3>tambah agenda</h3>
                               </a>
-                              {/* <a href="/admin/agenda/share" className='flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
-                                    <HiOutlineBellAlert className='h-4 w-4' />
-                                    <h3>share</h3>
-                              </a> */}
                         </Disclosure.Panel>
                         </>
                         )}
@@ -106,25 +107,17 @@ function Sidebar() {
                         </Disclosure.Button>
                         <Disclosure.Panel className="pl-4 text-sm text-gray-500 flex flex-col space-y-1">
                               <a href="/admin/galeri" className='flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
-                                    <IoCalendarOutline className='h-4 w-4' />
-                                    <h3>data foto&video</h3>
+                                    <IoImagesOutline className='h-4 w-4' />
+                                    <h3>data foto</h3>
                               </a>
                               <a href="/admin/galeri/addphoto" className='flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
-                                    <IoCalendarOutline className='h-4 w-4' />
+                                    <IoImagesOutline className='h-4 w-4' />
                                     <h3>tambah foto</h3>
                               </a>
-                              {/* <a href="/admin/galeri/addvideo" className=' flex items-center py-2 px-2 justify-start space-x-2 rounded-lg w-full hover:bg-gray-200 transition-all duration-200'>
-                                    <HiOutlineBellAlert className='h-4 w-4' />
-                                    <h3>tambah video</h3>
-                              </a> */}
                         </Disclosure.Panel>
                         </>
                         )}
                         </Disclosure>
-                        {/* button logout
-                        <div className='w-full flex items-center justify-center'>
-                              <div className='flex items-center justify-center w-[60%] h-[45px] rounded-xl bg-red-500 text-white text-lg font-light'>logout</div>
-                        </div> */}
                   </div>
       </div>
   )
