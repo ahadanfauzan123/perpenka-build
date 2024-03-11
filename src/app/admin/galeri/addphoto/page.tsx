@@ -15,15 +15,15 @@ function classNames(...classes: (string | undefined | null | false | 0)[]) {
 }
 
 function AddPhoto() {
-      const [user] = useAuthState(auth)
-  const router = useRouter()
+//       const [user] = useAuthState(auth)
+//   const router = useRouter()
 
   
-      if (!user) {
-            window.location.href = "/";
-      } else {
-        console.log(user);
-      }
+//       if (!user) {
+//             window.location.href = "/";
+//       } else {
+//         console.log(user);
+//       }
     
       
   return (

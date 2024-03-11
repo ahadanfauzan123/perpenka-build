@@ -13,16 +13,16 @@ import { redirect, useRouter } from 'next/navigation'
 
 
 function DataUser() {
-  const {users} = useContext(NewsContext)
-  const [user] = useAuthState(auth)
-  const router = useRouter()
+  // const {users} = useContext(NewsContext)
+  // const [user] = useAuthState(auth)
+  // const router = useRouter()
 
  
-    if (!user) {
-      window.location.href = "/";
-    } else {
-      console.log(user);
-    }
+  //   if (!user) {
+  //     window.location.href = "/";
+  //   } else {
+  //     console.log(user);
+  //   }
   
   return (
     <div className='w-screen min-h-screen bg-purple-200 flex text-gray-600'>

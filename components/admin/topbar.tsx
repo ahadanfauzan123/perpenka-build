@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 
 import { Menu, Transition } from '@headlessui/react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
-import { signOut } from 'firebase/auth';
+import { signOut, useUser } from '@/lib/auth'
 import { auth } from '../../firebase';
 // import { useRouter } from 'next/navigation';
 
@@ -12,6 +12,7 @@ type CounterProps = {
     };
 
 function Topbar() {
+      const user = useUser()
       
   return (
       <div className='z-30 bg-white w-full xl:w-[80%] ml-auto h-[90px] px-6 fixed top-0 right-0 flex items-center justify-between'>
@@ -61,7 +62,7 @@ function Topbar() {
                         <Menu.Item>
                         {({ active }) => (
                               <button
-                              onClick={() => signOut(auth)}
+                              onClick={signOut}
                               className={`${
                               active ? 'bg-red-300 text-white' : 'text-gray-50 bg-red-500'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm`}

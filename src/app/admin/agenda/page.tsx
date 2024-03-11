@@ -34,15 +34,15 @@ interface Event {
 // }
 
 export default function AddAgenda() {
-  const [user] = useAuthState(auth)
-  const router = useRouter()
+  // const [user] = useAuthState(auth)
+  // const router = useRouter()
 
   
-    if (!user) {
-      window.location.href = "/";
-    } else {
-      console.log(user);
-    }
+  //   if (!user) {
+  //     window.location.href = "/";
+  //   } else {
+  //     console.log(user);
+  //   }
   
   const [allEvents, setAllEvents] = useState<Event[]>([])
   const [showModal, setShowModal] = useState(false)

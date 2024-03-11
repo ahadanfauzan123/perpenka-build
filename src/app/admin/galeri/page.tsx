@@ -18,16 +18,16 @@ function classNames(...classes: (string | undefined | null | false | 0)[]) {
 
 function ManageGallery() {  
       
-  const [user] = useAuthState(auth)
-  const router = useRouter()
+//   const [user] = useAuthState(auth)
+//   const router = useRouter()
 
-  useEffect(() => {
-      if (!user) {
-            window.location.href = "/";
-      } else {
-        console.log(user);
-      }
-    }, [user, router]);
+//   useEffect(() => {
+//       if (!user) {
+//             window.location.href = "/";
+//       } else {
+//         console.log(user);
+//       }
+//     }, [user, router]);
   return (
       <div className='w-screen min-h-screen bg-blue-100 flex text-gray-600'>
             {/* sidebar */}

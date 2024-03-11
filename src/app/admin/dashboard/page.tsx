@@ -16,16 +16,16 @@ import { auth } from '../../../../firebase'
 
 
 function AdminDashboard() {
-  const {users} = useContext(NewsContext)
-  const [user] = useAuthState(auth)
-  const router = useRouter()
+  // const {users} = useContext(NewsContext)
+  // const [user] = useAuthState(auth)
+  // const router = useRouter()
 
   
-    if (!user) {
-      window.location.href = "/";
-    } else {
-      console.log(user);
-    }
+  //   if (!user) {
+  //     window.location.href = "/";
+  //   } else {
+  //     console.log(user);
+  //   }
   
   
   // ReactGA.initialize("G-FQ6V4E5T2S");
