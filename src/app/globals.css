@@ -19,14 +19,14 @@
 } */
 
 
-/* body {
+ body {
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
-} */
-/* body {
+} 
+ body {
   @apply font-montserrat overflow-x-hidden;
-} */
-/* body::-webkit-scrollbar {
+} 
+ body::-webkit-scrollbar {
   display: none;
 }
 *::-webkit-scrollbar {
@@ -88,9 +88,6 @@ a:hover > .arrow {
 .fc-v-event {
   @apply bg-orange-400 border border-orange-400 ;
   
-} */
-body {
-  overflow-x: hidden;
 }
  .swiper {
   width: 100%;

@@ -7,6 +7,7 @@ type NewsContextType = {
       users: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       posts: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       agendas: any[]; // Sesuaikan dengan tipe data yang sebenarnya
+      futureAgendas: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       dashboardPost: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       galleryDashboard: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       fullGallery: any[]; // Sesuaikan dengan tipe data yang sebenarnya
@@ -16,6 +17,7 @@ type NewsContextType = {
       users: [],
       posts: [],
       agendas: [],
+      futureAgendas: [],
       dashboardPost: [],
       galleryDashboard: [],
       fullGallery: [],
@@ -30,6 +32,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
       const [users, setUsers] = useState<any[]>([])
       const [posts, setPosts] = useState<any[]>([])
       const [agendas, setAgendas] = useState<any[]>([])
+      const [futureAgendas, setFutureAgendas] = useState<any[]>([])
       const [dashboardPost, setDashboardPost] = useState<any[]>([])
       const [galleryDashboard, setGalleryDashboard] = useState<any[]>([])
       const [fullGallery, setFullGallery] = useState<any[]>([])
@@ -66,6 +69,29 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                   }))
             }
             getAgenda()
+
+      }, [])
+      useEffect(() => {
+            const getFutureAgendas = async () => {
+                  const futureAgendaCollection = collection(db, 'agenda');
+                  const latestSnapshot = await query(futureAgendaCollection,
+                        where("startDate", ">=", new Date()),
+                        orderBy('startDate', 'asc'),
+                        limit(3))
+                  const querySnapshot = await getDocs(latestSnapshot)
+                  setFutureAgendas(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    name: doc.data().name,
+                                    description: doc.data().description,
+                                    startDate: doc.data().startDate.toDate().toLocaleDateString('id-ID'),
+                                    DueDate: doc.data().DueDate.toDate().toLocaleDateString('id-ID'),//mark
+                              }
+                        }
+                  }))
+            }
+            getFutureAgendas()
 
       }, [])
       useEffect(() => {
@@ -161,7 +187,7 @@ const NewsProvider = ({children}: NewsProviderProps) => {
 
       }, [])
 return (
-      <NewsContext.Provider value={{ fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
+      <NewsContext.Provider value={{ futureAgendas,fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
             {children}
       </NewsContext.Provider>
 )

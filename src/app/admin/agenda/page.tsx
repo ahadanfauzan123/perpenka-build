@@ -213,7 +213,7 @@ export default function AddAgenda() {
               selectMirror={true}
               dateClick={handleDateClick}
               drop={(data) => addEvent(data)}
-              eventClick={(data) => handleDeleteModal(data)}
+              // eventClick={(data) => handleDeleteModal(data)}
             />
           </div>
           {/* <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
