@@ -1,5 +1,6 @@
 "use client"
-import React, {useState} from 'react'
+
+import React from 'react'
 
 import { signIn } from '@/lib/auth';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -8,9 +9,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 function Login() {
       const router = useRouter();
-      const searchParams = useSearchParams();
-      const continueTo = searchParams.get("continueTo") ?? "/admin/dashboard";
-      
+      // const searchParams = useSearchParams();
+      // const continueTo = searchParams.get("continueTo") ?? "/admin/dashboard";
+
       async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
             event.preventDefault();
             const form = event.currentTarget;
@@ -19,7 +20,7 @@ function Login() {
             const rememberMe = form.rememberMe.checked;
             try {
                   await signIn(username, password, rememberMe);
-                  router.replace(continueTo)
+                  router.replace("/admin/dashboard")
             } catch (e) {
                   console.error(e);
             }
@@ -73,7 +74,6 @@ function Login() {
                             </button>
 
                         </div>
-                        <pre>next: {continueTo}</pre>
                         
                     </form>                
                 </div>
