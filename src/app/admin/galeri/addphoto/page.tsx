@@ -36,7 +36,7 @@ function AddPhoto() {
                   {/* body */}
                   <div className='pt-[90px] min-h-[calc(100vh-90px)] w-full  '>
                   <Tab.Group>
-                        <Tab.List className="flex space-x-1 rounded-xl rounded-t-none bg-orange-600/40 p-1">
+                        <Tab.List className="flex space-x-1 rounded-xl rounded-t-none bg-[#1c2d8c] p-1">
                               {/* banner header */}
                               <Tab
                               className={({ selected }) =>

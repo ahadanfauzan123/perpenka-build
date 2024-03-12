@@ -11,6 +11,7 @@ import { MdOutlineEditNote } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import { HiOutlineBellAlert } from "react-icons/hi2";
 import { IoImagesOutline } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 import Image from 'next/image';
 
 function Sidebar() {
@@ -22,6 +23,10 @@ function Sidebar() {
                   <h1 className='text-lg font-semibold'>admin<span className='text-[#ff7f00]'>perpenka</span></h1>
             </div>
                   <div className=' flex flex-col space-y-2 overflow-y-scroll h-[calc(100vh-145px)] w-full '>
+                        <a href="/admin/dashboard" className=" text-sm flex items-center space-x-2 text-gray-600">
+                              <IoHomeOutline className='h-4 w-4 mr-3 ml-2' />
+                              Dashboard
+                              </a>
                         <Disclosure>
                         {({ open }) => (
                         <>

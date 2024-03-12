@@ -1,6 +1,6 @@
 "use client"
 import { createContext, useState, ReactNode, useEffect } from "react";
-import {collection, getDocs, setDoc ,doc, limit, orderBy,query, where} from 'firebase/firestore'
+import {collection, getDocs, setDoc ,doc, limit, orderBy,query, where, and} from 'firebase/firestore'
 import {db} from '../firebase'
 
 type NewsContextType = {
@@ -11,6 +11,9 @@ type NewsContextType = {
       dashboardPost: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       galleryDashboard: any[]; // Sesuaikan dengan tipe data yang sebenarnya
       fullGallery: any[]; // Sesuaikan dengan tipe data yang sebenarnya
+      bannerDashboard: any[];
+      strukturImage: any[];
+      dppImage: any[];
   }
   
   const initialContext: NewsContextType = {
@@ -21,6 +24,9 @@ type NewsContextType = {
       dashboardPost: [],
       galleryDashboard: [],
       fullGallery: [],
+      bannerDashboard: [],
+      strukturImage: [],
+      dppImage: [],
   }
   
   const NewsContext = createContext<NewsContextType>(initialContext);
@@ -36,6 +42,9 @@ const NewsProvider = ({children}: NewsProviderProps) => {
       const [dashboardPost, setDashboardPost] = useState<any[]>([])
       const [galleryDashboard, setGalleryDashboard] = useState<any[]>([])
       const [fullGallery, setFullGallery] = useState<any[]>([])
+      const [bannerDashboard, setBannerDashboard] = useState<any[]>([])
+      const [strukturImage, setStrukturImage] = useState<any[]>([])
+      const [dppImage, setDppImage] = useState<any[]>([])
       
       useEffect(() => {
             const getUsers = async () => {
@@ -186,8 +195,77 @@ const NewsProvider = ({children}: NewsProviderProps) => {
             getFullGallery()
 
       }, [])
+      // bannerDashboard
+      useEffect(() => {
+            const getBannerDashboard = async () => {
+                  const bannerCollection = collection(db, 'images');
+                  const latestSnapshot = await query(bannerCollection,
+                        where('role', '==' , 'banner'),
+                        orderBy('createdAt', 'desc'),
+                        limit(3))
+                  const querySnapshot = await getDocs(latestSnapshot);
+                  setBannerDashboard(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    name: doc.data().name,
+                                    url: doc.data().url,
+                                    role: doc.data().role,
+                              }
+                        }
+                  }))
+            }
+            getBannerDashboard()
+
+      }, [])
+      // struktur image
+      useEffect(() => {
+            const getStrukturImage = async () => {
+                  const strukturCollection = collection(db, 'images');
+                  const latestSnapshot = await query(strukturCollection,
+                        where('role', '==' , 'struktur'),
+                        where("name", "!=", "dpp"),
+                        orderBy('name', 'asc'))
+                  const querySnapshot = await getDocs(latestSnapshot);
+                  setStrukturImage(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    name: doc.data().name,
+                                    url: doc.data().url,
+                                    role: doc.data().role,
+                              }
+                        }
+                  }))
+            }
+            getStrukturImage()
+
+      }, [])
+      // dppImage
+      useEffect(() => {
+            const getDppImage = async () => {
+                  const dppCollection = collection(db, 'images');
+                  const latestSnapshot = await query(dppCollection,
+                        where('role', '==' , 'struktur'),
+                        where("name", "==", "dpp"),
+                        orderBy('name', 'asc'))
+                  const querySnapshot = await getDocs(latestSnapshot);
+                  setDppImage(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    name: doc.data().name,
+                                    url: doc.data().url,
+                                    role: doc.data().role,
+                              }
+                        }
+                  }))
+            }
+            getDppImage()
+
+      }, [])
 return (
-      <NewsContext.Provider value={{ futureAgendas,fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
+      <NewsContext.Provider value={{ dppImage, bannerDashboard, strukturImage, futureAgendas,fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
             {children}
       </NewsContext.Provider>
 )

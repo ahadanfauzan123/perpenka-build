@@ -41,6 +41,7 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 export default function Home() {
 
   const {dashboardPost} = useContext(NewsContext);
+  const {bannerDashboard} = useContext(NewsContext);
 
   const exampleVariant = {
     visible: { opacity: 1 },
@@ -116,23 +117,16 @@ const [ref, inView] = useInView()
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]} className="mySwiper">
-        <SwiperSlide>
-          <div className="w-full h-full relative">
-            <Image id="bannerImage" src={Banner3} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
-          </div>
-          
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="w-full h-full relative">
-            <Image id="bannerImage" src={Banner2} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="w-full h-full relative">
-            <Image id="bannerImage" src={Logo} alt="banner 1"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
-          </div>
-        </SwiperSlide>
+          {bannerDashboard.map(bd => (
+          <SwiperSlide key={bd.id}>
+            <div className="w-full h-full relative">
+              <Image width={500} height={500} id="bannerImage" src={bd.data.url} alt="banner"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
+            </div>
+          </SwiperSlide>
+          ))}
+        
       </Swiper>
+      
       </div>
       {/* section 2  bg-[#ff7f00]*/}
       <div className="w-full flex py-[60px] flex-col bg-[#1c2d8c] ">

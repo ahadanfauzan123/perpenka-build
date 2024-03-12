@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import logoBaru from "../../../public/img/logoBaru.jpg"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,11 +18,14 @@ import 'swiper/css/thumbs';
         
 import Navbar from '../../../components/navbar'
 import Footer from '../../../components/footer';
+import { NewsContext } from '../../../context/NewsContext';
 
 
 SwiperCore.use([Thumbs]);
 
 export default function About() {
+    const {strukturImage} = useContext(NewsContext)
+    const {dppImage} = useContext(NewsContext)
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
     const [thumbsSwiperOne, setThumbsSwiperOne] = useState<SwiperCore | null>(null);
 
@@ -204,130 +207,155 @@ export default function About() {
                                         modules={[FreeMode, Navigation, Thumbs]}
                                         className="mySwiper"
                                     >
-                                        <SwiperSlide>
-                                            <div className=" rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPP
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Jak
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Bd
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Cn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Sm
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pwt
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Yk
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Mn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Sb
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Jr
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Mdn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pd
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pg
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Tnk
-                                            </div>
-                                        </SwiperSlide>
+                                        {dppImage.map(dpp => (
+                                            <SwiperSlide key={dpp.id}>
+                                                <div className="uppercase rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    {dpp.data.name}
+                                                </div>
+                                            </SwiperSlide>
+                                        ))}
+                                        {strukturImage.map(si => (
+                                            <SwiperSlide key={si.id}>
+                                                <div className="uppercase cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    {si.data.name}
+                                                </div>
+                                            </SwiperSlide>
+                                        ))}
+                                        {strukturImage.length === 0 && (
+                                            <>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Jak
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Bd
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Cn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Sm
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pwt
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Yk
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Mn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Sb
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Jr
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Mdn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pd
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pg
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[10vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Tnk
+                                                </div>
+                                            </SwiperSlide>
+                                            
+                                            </>
+                                        )}
                                         
                                 </Swiper>
                                 <Swiper
-                                    // style={{
-                                    // '--swiper-navigation-color': '#fff',
-                                    // '--swiper-pagination-color': '#fff',
-                                    // }}
                                     loop={true}
                                     spaceBetween={10}
-                                    // navigation={true}
                                     thumbs={{ swiper: thumbsSwiper }}
                                     modules={[FreeMode, Navigation, Thumbs]}
                                     className="mySwiper2 mt-3"
                                 >
-                                    <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[630px] max-h-screen rounded-xl' src={Dpp} />
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
+                                    {dppImage.map(dpp => (
+                                        <SwiperSlide key={dpp.id}>
+                                        <Image alt="set" width={600} height={500} className='w-full min-h-[500px] max-h-screen rounded-xl' src={dpp.data.url} />
+                                        </SwiperSlide>
+
+                                    ))}
+                                    {strukturImage.map(si => (
+                                        <SwiperSlide key={si.id}>
+                                        <Image alt="set" width={600} height={500} className='w-full min-h-[500px] max-h-screen rounded-xl' src={si.data.url} />
+                                        </SwiperSlide>
+
+                                    ))}
+                                    {strukturImage.length === 0 && (
+                                        <>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] lg:h-[630px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        
+                                        </>
+                                    )}
                                 </Swiper>
                                 </div>
+
+                                
                               {/* sm */}
                               <div className="card w-full py-5 block lg:hidden ">
                                 <Swiper
@@ -340,84 +368,95 @@ export default function About() {
                                         modules={[FreeMode, Navigation, Thumbs]}
                                         className="mySwiper"
                                     >
-                                        <SwiperSlide>
-                                            <div className=" rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPP
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD 1 Jak
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD 2 Bd
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Cn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Sm
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pwt
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Yk
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Mn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Sb
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Jr
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Mdn
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pd
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Pg
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
-                                                DPD Tnk
-                                            </div>
-                                        </SwiperSlide>
+                                        {dppImage.map(dpp => (
+                                            <SwiperSlide key={dpp.id}>
+                                                <div className=" rounded-l-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    {dpp.data.name}
+                                                </div>
+                                            </SwiperSlide>
+
+                                        ))}
+                                        {strukturImage.map(si => (
+                                            <SwiperSlide key={si.id}>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    {si.data.name}
+                                                </div>
+                                            </SwiperSlide>
+
+                                        ))}
+                                        {strukturImage.length === 0 && (
+                                            <>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD 1 Jak
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD 2 Bd
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Cn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Sm
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pwt
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className=" cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Yk
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Mn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Sb
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Jr
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Mdn
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pd
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Pg
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className="rounded-r-xl cursor-pointer text-lg font-semibold hover:bg-gray-200 transition-all duration-300 w-[20vw] h-[55px] bg-white shadow-sm shadow-gray-400 flex items-center justify-center">
+                                                    DPD Tnk
+                                                </div>
+                                            </SwiperSlide>
+                                            </>
+                                        )}
                                         
                                 </Swiper>
                          
                                 <Swiper
-                                    // style={{
-                                    // '--swiper-navigation-color': '#fff',
-                                    // '--swiper-pagination-color': '#fff',
-                                    // }}
                                     loop={true}
                                     spaceBetween={10}
                                     // navigation={true}
@@ -425,44 +464,57 @@ export default function About() {
                                     modules={[FreeMode, Navigation, Thumbs]}
                                     className="mySwiper2 mt-3"
                                 >
-                                    <SwiperSlide>
-                                    <Image alt="set" width={600} height={500} className='w-full h-[500px] max-h-screen rounded-xl' src={Dpp} />
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
-                                            Coming Soon...
-                                        </div>
-                                    </SwiperSlide>
+                                    {dppImage.map(dpp => (
+                                        <SwiperSlide key={dpp.id}>
+                                        <Image alt="set" width={600} height={500} className='w-full min-h-[300px] max-h-screen rounded-xl' src={dpp.data.url} />
+                                        </SwiperSlide>
+
+                                    ))}
+                                    {strukturImage.map(si => (
+                                        <SwiperSlide key={si.id}>
+                                        <Image alt="set" width={600} height={500} className='w-full min-h-[300px] max-h-screen rounded-xl' src={si.data.url} />
+                                        </SwiperSlide>
+
+                                    ))}
+                                    {strukturImage.length === 0 && (
+                                        <>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='w-full h-[360px] flex items-center justify-center text-gray-500 bg-gray-300'>
+                                                Coming Soon...
+                                            </div>
+                                        </SwiperSlide>
+                                        </>
+                                    )}
                                 </Swiper>
                             </div>
                         </div>
