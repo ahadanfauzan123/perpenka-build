@@ -150,7 +150,7 @@ function DataBerita() {
                   </div>
                   {/* body */}
                   <div className='w-full flex flex-col space-y-5 mx-auto'>
-                  <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg">
+                  <div className="relative w-full overflow-x-scroll shadow-md sm:rounded-lg">
                   <table className="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                               <tr>
@@ -162,9 +162,6 @@ function DataBerita() {
                               </th>
                               <th scope="col" className="px-6 py-3">
                                     Kategori
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                    Token
                               </th>
                               <th scope="col" className="px-6 py-3">
                                     <span className="sr-only">Edit</span>
@@ -185,11 +182,6 @@ function DataBerita() {
                                     <td className="w-[0.2] px-6 py-4 truncate">
                                           <h1 className="w-full truncate">
                                                 {post.data.category}
-                                          </h1>
-                                    </td>
-                                    <td className="w-[0.2] px-6 py-4 truncate">
-                                          <h1 className="w-full truncate">
-                                                {post.id}
                                           </h1>
                                     </td>
                                     <td className="w-[0.2] px-6 py-4 text-right flex items-center justify-center space-x-3">

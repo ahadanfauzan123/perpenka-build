@@ -32,15 +32,6 @@ import {
 
 
 function AddNews() {
-      // const [user] = useAuthState(auth)
-      // const router = useRouter()
-
-      
-      //       if (!user) {
-      //             window.location.href = "/";
-      //       } else {
-      //         console.log(user);
-      //       }
       
       const [title, setTitle] = useState<string>('');
       const [body, setBody] = useState<string>('');

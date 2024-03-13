@@ -20,11 +20,11 @@
 
 
  body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     font-family: "Montserrat", sans-serif;
 } 
  body {
-  @apply font-montserrat overflow-x-hidden;
+  @apply font-montserrat;
 } 
  body::-webkit-scrollbar {
   display: none;

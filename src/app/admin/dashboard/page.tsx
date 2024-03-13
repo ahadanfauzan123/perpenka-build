@@ -20,6 +20,7 @@ import Link from 'next/link'
 
 
 function AdminDashboard() {
+  const {singleDataListAnggota} = useContext(NewsContext)
   
   
   
@@ -35,8 +36,8 @@ function AdminDashboard() {
             {/* topbar */}
             <Topbar />
             {/* body */}
-            <div className='mt-[90px] min-h-[calc(100vh-90px)] w-full '>
-            <div className='flex items-center space-x-3'>
+            <div className='mt-[120px] min-h-[calc(100vh-90px)] w-full '>
+            <div className='flex items-center space-x-3 m-6'>
                       <div className='w-1 h-[40px] rounded bg-blue-400'></div>
                       <h1 className='text-gray-600 text-3xl font-extrabold'>Dashboard</h1>
                   </div>
@@ -51,11 +52,13 @@ function AdminDashboard() {
                 <div className="p-3 rounded-full bg-indigo-600 bg-opacity-75">
                     <FiUsers className="text-3xl text-gray-100" />
                 </div>
+                {singleDataListAnggota.map(sd => (
+                  <div key={sd.id} className="mx-5">
+                      <h4 className="text-2xl font-semibold text-gray-700">{sd.data.jumlahAnggota}</h4>
+                      <div className="text-gray-500">Anggota</div>
+                  </div>
 
-                <div className="mx-5">
-                    <h4 className="text-2xl font-semibold text-gray-700">4644</h4>
-                    <div className="text-gray-500">Anggota</div>
-                </div>
+                ))}
             </div>
         </div>
 
@@ -106,7 +109,7 @@ function AdminDashboard() {
                       </Link>
                       <Link href={"/admin/users"} className="hover:bg-gray-100 bg-white rounded-lg px-4 py-2 w-full flex items-center">
                         <div className="flex-1 flex flex-col space-y-2">
-                          <h1>Data User</h1>
+                          <h1>Data Anggota</h1>
                           <pre>/admin/users/</pre>
                         </div>
                         <div className=" w-[20%] flex items-center justify-end">

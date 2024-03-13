@@ -14,6 +14,8 @@ type NewsContextType = {
       bannerDashboard: any[];
       strukturImage: any[];
       dppImage: any[];
+      dataListAnggota: any[];
+      singleDataListAnggota: any[];
   }
   
   const initialContext: NewsContextType = {
@@ -27,6 +29,8 @@ type NewsContextType = {
       bannerDashboard: [],
       strukturImage: [],
       dppImage: [],
+      dataListAnggota: [],
+      singleDataListAnggota: [],
   }
   
   const NewsContext = createContext<NewsContextType>(initialContext);
@@ -45,6 +49,8 @@ const NewsProvider = ({children}: NewsProviderProps) => {
       const [bannerDashboard, setBannerDashboard] = useState<any[]>([])
       const [strukturImage, setStrukturImage] = useState<any[]>([])
       const [dppImage, setDppImage] = useState<any[]>([])
+      const [dataListAnggota, setDataListAnggota] = useState<any[]>([])
+      const [singleDataListAnggota, setSingleDataListAnggota] = useState<any[]>([])
       
       useEffect(() => {
             const getUsers = async () => {
@@ -64,15 +70,26 @@ const NewsProvider = ({children}: NewsProviderProps) => {
       }, [])
       useEffect(() => {
             const getAgenda = async () => {
-                  const querySnapshot = await getDocs(collection(db, 'agenda'));
+                  const futureAgendaCollection = collection(db, 'agenda');
+                  const latestSnapshot = await query(futureAgendaCollection,
+                        orderBy('startDate', 'asc'))
+                  const querySnapshot = await getDocs(latestSnapshot)
                   setAgendas(querySnapshot.docs.map(doc => {
                         return {
                               id: doc.id,
                               data: {
                                     name: doc.data().name,
                                     description: doc.data().description,
-                                    startDate: doc.data().startDate.toDate().toLocaleString('id-ID'),
-                                    DueDate: doc.data().DueDate.toDate().toLocaleString('id-ID'),//mark
+                                    startDate: doc.data().startDate.toDate().toLocaleString('id-ID' , {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),
+                                    DueDate: doc.data().DueDate.toDate().toLocaleString('id-ID' , {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),//mark
                               }
                         }
                   }))
@@ -94,8 +111,16 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                               data: {
                                     name: doc.data().name,
                                     description: doc.data().description,
-                                    startDate: doc.data().startDate.toDate().toLocaleDateString('id-ID'),
-                                    DueDate: doc.data().DueDate.toDate().toLocaleDateString('id-ID'),//mark
+                                    startDate: doc.data().startDate.toDate().toLocaleDateString('id-ID' , {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),
+                                    DueDate: doc.data().DueDate.toDate().toLocaleDateString('id-ID' , {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),//mark
                               }
                         }
                   }))
@@ -118,7 +143,11 @@ const NewsProvider = ({children}: NewsProviderProps) => {
                                     category: doc.data().category,
                                     bannerImage: doc.data().bannerImage,
                                     title: doc.data().title,
-                                    postedOn: doc.data().postedOn.toDate().toLocaleString("id-ID"),
+                                    postedOn: doc.data().postedOn.toDate().toLocaleString("id-ID", {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),
                                     author: doc.data().author,
                               }
                         }
@@ -264,8 +293,57 @@ const NewsProvider = ({children}: NewsProviderProps) => {
             getDppImage()
 
       }, [])
+      // get list data anggota
+      useEffect(() => {
+            const getDataListAnggota = async () => {
+                  const anggotaCollection = collection(db, 'anggota');
+                  const latestSnapshot = await query(anggotaCollection,
+                        orderBy('postedOn', 'desc'))
+                  const querySnapshot = await getDocs(latestSnapshot);
+                  setDataListAnggota(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    jumlahAnggota: doc.data().jumlahAnggota,
+                                    postedOn: doc.data().postedOn.toDate().toLocaleDateString("id-ID", {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),
+                              }
+                        }
+                  }))
+            }
+            getDataListAnggota()
+
+      }, [])
+      // get single data anggota
+      useEffect(() => {
+            const getDataListAnggota = async () => {
+                  const anggotaCollection = collection(db, 'anggota');
+                  const latestSnapshot = await query(anggotaCollection,
+                        orderBy('postedOn', 'desc'),
+                        limit(1))
+                  const querySnapshot = await getDocs(latestSnapshot);
+                  setSingleDataListAnggota(querySnapshot.docs.map(doc => {
+                        return {
+                              id: doc.id,
+                              data: {
+                                    jumlahAnggota: doc.data().jumlahAnggota,
+                                    postedOn: doc.data().postedOn.toDate().toLocaleDateString("id-ID", {
+                                          year:"numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                    }),
+                              }
+                        }
+                  }))
+            }
+            getDataListAnggota()
+
+      }, [])
 return (
-      <NewsContext.Provider value={{ dppImage, bannerDashboard, strukturImage, futureAgendas,fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
+      <NewsContext.Provider value={{ singleDataListAnggota, dataListAnggota, dppImage, bannerDashboard, strukturImage, futureAgendas,fullGallery,posts,users,agendas, dashboardPost, galleryDashboard }}>
             {children}
       </NewsContext.Provider>
 )

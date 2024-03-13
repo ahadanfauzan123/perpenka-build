@@ -42,6 +42,7 @@ export default function Home() {
 
   const {dashboardPost} = useContext(NewsContext);
   const {bannerDashboard} = useContext(NewsContext);
+  const {singleDataListAnggota} = useContext(NewsContext);
 
   const exampleVariant = {
     visible: { opacity: 1 },
@@ -143,10 +144,12 @@ const [ref, inView] = useInView()
             <div className="flex flex-col space-y-4">
               <div className="w-full h-1 rounded bg-gray-50 opacity-75"></div>
               <div className="flex items-center space-x-8">
-                <div className="flex flex-col items-center justify-between h-[86px]">
-                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={6781} /></h1>
-                  <p className=" text-xs lg:text-[14px] font-light h-[30px] text-center text-gray-50">Anggota<br /><span className="text-xs">per 31 Desember 2023</span></p>
+              {singleDataListAnggota.map(sd => (
+                <div key={sd.id} className="flex flex-col items-center justify-between h-[86px]">
+                  <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={sd.data.jumlahAnggota} /></h1>
+                  <p className=" text-xs lg:text-[14px] font-light h-[30px] text-center text-gray-50">Anggota<br /><span className="text-xs">per {sd.data.postedOn}</span></p>
                 </div>
+              ))}
                 <div className="flex flex-col items-center justify-between h-[86px] space-y-2">
                   <h1 className="text-3xl font-extrabold text-gray-50"><AnimatedCounter from={0} to={20} /><span>+</span></h1>
                   <p className=" text-xs lg:text-[14px] font-light h-[30px] text-gray-50">Acara Tahunan</p>

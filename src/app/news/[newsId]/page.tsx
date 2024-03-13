@@ -48,7 +48,11 @@ function Read({ params }: { params: { newsId: string } }) {
                         },
                     });
                     const getDate = articleDocSnap.data();
-                    setTanggal(getDate.postedOn.toDate().toLocaleString("id-ID"));
+                    setTanggal(getDate.postedOn.toDate().toLocaleString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    }));
                 } else {
                     console.log('Dokumen tidak ditemukan!');
                 }
