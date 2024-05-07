@@ -1,14 +1,47 @@
 "use client"
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../../../components/navbar';
 import Footer from '../../../components/footer';
 import Image from 'next/image';
 import { NewsContext } from '../../../context/NewsContext';
 
+import {
+      ChakraProvider,
+      Modal,
+      ModalOverlay,
+      ModalContent,
+      ModalHeader,
+      ModalFooter,
+      ModalBody,
+      ModalCloseButton,
+      Button,
+      useDisclosure,
+      Progress,
+      CircularProgress,
+    } from '@chakra-ui/react'
+
+
+    interface GalleryData {
+      id: string;
+      data: {
+          name: string;
+          url: string;
+      };
+  }
+
 function Gallery() {
+      const { isOpen, onOpen, onClose } = useDisclosure()
+      
   const {fullGallery} = useContext(NewsContext)
+  
+  const [selectedPhoto, setSelectedPhoto] = useState<GalleryData | null>(null);
      
+  const handlePhotoClick = (photo: GalleryData) => {
+      setSelectedPhoto(photo);
+      onOpen();
+    };
       return (
+            <ChakraProvider>
             <div className='bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600'>
                   <Navbar isGray={true} />
                   <div className='w-[80vw] mx-auto flex flex-col space-y-12 mt-[110px]'>
@@ -20,7 +53,7 @@ function Gallery() {
                         {/* body */}
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                         {fullGallery.map( fg => (
-                              <div key={fg.id}>
+                              <div key={fg.id} onClick={() => handlePhotoClick(fg)}>
                               <Image 
                               className="h-[240px] w-full max-w-full rounded-lg object-cover object-center"
                               src={fg.data.url}
@@ -33,7 +66,30 @@ function Gallery() {
                         </div>
                   </div>
                   <Footer />
+                  {/* modal */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Detail</ModalHeader>
+          <ModalCloseButton className='hover:bg-red-400' onClick={onClose} />
+          <ModalBody className='flex flex-col items-center justify-center my-[18px] '>
+            {selectedPhoto && (
+              <>
+                <Image
+                  className='w-full max-w-full rounded-lg object-cover object-center'
+                  src={selectedPhoto.data.url}
+                  alt='selected-photo'
+                  width={500}
+                  height={400}
+                />
+                <p className="mt-4">{selectedPhoto.data.name}</p>
+              </>
+            )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
             </div>
+            </ChakraProvider>
       );
     }
      

@@ -17,6 +17,7 @@ import {
       useDisclosure,
       Progress,
       CircularProgress,
+      Text,
     } from '@chakra-ui/react'
 import { db, storage } from '../../firebase';
 import  {getDownloadURL, ref,   uploadBytesResumable, UploadTaskSnapshot} from 'firebase/storage'
@@ -85,7 +86,7 @@ function AddPhotoGallery() {
                               //       console.log(downloadURL)
                               // })
                               await addDoc(collection(db, "images"), {
-                                    name: fileId,
+                                    name: value,
                                     url: downloadURL,
                                     role: "gallery",
                                     createdAt: serverTimestamp()
@@ -116,6 +117,17 @@ function AddPhotoGallery() {
                   </label>
                   <input ref={inputRef} id="dropzone-file" type="file" className="hidden" onChange={handleChange} />
             </div> 
+            {/* heading */}
+            <div className='bg-white w-[60%] h-[100px] rounded-lg px-4 py-1'>
+                                    <Text mb='8px' className='text-2xl '>title</Text>
+                                    <input
+                                    type="text"
+                                    value={value}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+                                    placeholder='Tambah Judul untuk Foto..'
+                                    className='bg-transparent font-semibold placeholder:text-gray-300 h-[50px] w-full ring-0 outline-0 border-0 text-xl'
+                                    />
+                              </div>
             {/* button */}
             <Button onClick={handleSubmit} className='text-white px-5 py-2 rounded-lg bg-blue-400 border-0 outline-0'>
                   submit

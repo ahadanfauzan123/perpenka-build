@@ -99,7 +99,7 @@ function DataBanner({ currentItems, onDelete }: DataBannerProps) {
                   )}
             </ModalFooter>
             </ModalContent>
-            </Modal> 
+          </Modal> 
     </div>
     </ChakraProvider>
   );
