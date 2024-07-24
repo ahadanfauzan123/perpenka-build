@@ -4,7 +4,7 @@ import Logo from "../public/img/logofix.png"
 
 function Footer() {
   return (
-      <div className="bg-[#1c2d8c] mt-[240px] px-8 pt-16 mx-auto w-screen md:px-24 lg:px-8">
+      <div className="bg-[#1c2d8c] mt-[80px] px-8 pt-16 mx-auto w-screen md:px-24 lg:px-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <a

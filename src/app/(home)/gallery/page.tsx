@@ -1,9 +1,7 @@
 "use client"
 import React, { useContext, useState } from 'react'
-import Navbar from '../../../components/navbar';
-import Footer from '../../../components/footer';
 import Image from 'next/image';
-import { NewsContext } from '../../../context/NewsContext';
+import { NewsContext } from '../../../../context/NewsContext';
 
 import {
       ChakraProvider,
@@ -42,9 +40,9 @@ function Gallery() {
     };
       return (
             <ChakraProvider>
-            <div className='bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600'>
-                  <Navbar isGray={true} />
-                  <div className='w-[80vw] mx-auto flex flex-col space-y-12 mt-[110px]'>
+            <div className='bg-transparent w-[95%] lg:w-[80%] mx-auto pt-[120px] py-[40px] min-h-screen overflow-x-hidden text-gray-600'>
+                  {/* <Navbar isGray={true} /> */}
+                  <div className='w-full rounded-2xl mx-auto flex flex-col space-y-12 py-[40px] bg-white px-4'>
                         {/* heading */}
                         <div className='flex items-center space-x-3'>
                               <div className='w-1 h-[40px] rounded bg-blue-400'></div>
@@ -65,7 +63,7 @@ function Gallery() {
                         ))}
                         </div>
                   </div>
-                  <Footer />
+                  {/* <Footer /> */}
                   {/* modal */}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

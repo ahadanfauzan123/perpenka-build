@@ -1,8 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Card from "../../components/dashboardCard";
-import Navbar from "../../components/navbar";
+import Card from "../../../components/dashboardCard";
+// import Navbar from "../../../components/navbar";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Calendar from 'react-calendar';
@@ -19,21 +19,16 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 //react calendar
 import 'react-calendar/dist/Calendar.css';
 
-import FeaturedImageGallery from "../../components/featuredImageGallery";
-import Footer from "../../components/footer";
-import AnimatedCounter from  "../../components/counter";
-import WhatsApp from "../../components/whatsapp";
-import Banner1 from "../../public/img/banner1.png"
-import Banner2 from "../../public/img/fixbanner1.jpg"
-import Banner3 from "../../public/img/banner6.jpg"
-import Logo from "../../public/img/logoBaru.jpg"
-import svg1 from "../../public/img/component/1.png"
-import svg2 from "../../public/img/component/2.png"
+import AnimatedCounter from "../../../components/counter";
+import WhatsApp from "../../../components/whatsapp";
+import Logo from "../../../public/img/logoBaru.jpg"
+import svg1 from "../../../public/img/component/1.png"
+import svg2 from "../../../public/img/component/2.png"
 
-import { NewsContext } from "../../context/NewsContext";
+import { NewsContext } from "../../../context/NewsContext";
 import { useContext } from "react";
-import GetVideo from "../../components/play";
-import ImageGallery from "../../components/imageGallery";
+import GetVideo from "../../../components/play";
+import ImageGallery from "../../../components/imageGallery";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -43,7 +38,6 @@ export default function Home() {
   const {dashboardPost} = useContext(NewsContext);
   const {bannerDashboard} = useContext(NewsContext);
   const {singleDataListAnggota} = useContext(NewsContext);
-
   const exampleVariant = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
@@ -102,11 +96,11 @@ const [ref, inView] = useInView()
   return (
     <motion.div 
     
-    className="bg-gray-100 w-screen min-h-screen overflow-x-hidden">
+    className={`bg-transparent rounded-2xl w-[95%] lg:w-[80%] mx-auto min-h-screen overflow-x-hidden pt-[120px]`}>
       {/* navbar */}
-      <Navbar isGray={true} />
+      {/* <Navbar isGray={false} /> */}
       {/* heading */}
-      <div className="bg-gray-200 z-20 w-full h-screen relative m-0 p-0 overflow-x-hidden">
+      <div className="bg-gray-100 rounded-t-2xl z-20 w-full h-screen relative m-0 p-0 overflow-x-hidden">
       <Swiper 
         centeredSlides={true}
         autoplay={{
@@ -121,7 +115,7 @@ const [ref, inView] = useInView()
           {bannerDashboard.map(bd => (
           <SwiperSlide key={bd.id}>
             <div className="w-full h-full relative">
-              <Image width={500} height={500} id="bannerImage" src={bd.data.url} alt="banner"  className="absolute top-0 left-0 z-40 w-full h-full object-cover" />
+              <Image width={500} height={500} id="bannerImage" src={bd.data.url} alt="banner"  className="absolute top-0 left-0 z-40 w-full h-full object-contain rounded-t-2xl" />
             </div>
           </SwiperSlide>
           ))}
@@ -131,7 +125,7 @@ const [ref, inView] = useInView()
       </div>
       {/* section 2  bg-[#ff7f00]*/}
       <div className="w-full flex py-[60px] flex-col bg-[#1c2d8c] ">
-        <div className=" w-[80vw] mx-auto min-h-[80vh] lg:h-[80vh] flex flex-col space-y-8 lg:space-y-0 lg:flex-row items-center justify-between">
+        <div className=" w-[80%] mx-auto min-h-[80vh] lg:h-[80vh] flex flex-col space-y-8 lg:space-y-0 lg:flex-row items-center justify-between">
           <motion.div 
           // animate={{ x: 100 }}
           initial="offscreen"
@@ -168,9 +162,9 @@ const [ref, inView] = useInView()
         </div>
       </div>
       {/* section */}
-      <div className="w-full flex flex-col space-y-8">
+      <div className="w-full bg-gray-100 flex flex-col space-y-8">
         {/* kegiatan pertama */}
-        <div className="relative w-[80vw] mx-auto flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center lg:justify-between h-[65vh]">
+        <div className="relative w-[80%] mx-auto flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center lg:justify-between h-[65vh]">
           <Image alt="svg" src={svg1} width={100} height={100} className="absolute left-[50px] top-[40%]" />
           <motion.h1
           initial="offscreen"
@@ -188,7 +182,7 @@ const [ref, inView] = useInView()
 
         </div>
         {/* kegiatan kedua */}
-        <div className="w-screen bg-[#ff7f00]">
+        <div className="w-full bg-[#ff7f00]">
         <div className="relative flex flex-col lg:flex-row space-y-8 items-end lg:items-center justify-between lg:justify-between w-[80%] mx-auto left-0 p-6 h-[55vh]">
         <Image alt="svg" src={svg2} width={100} height={100} className="absolute right-[50px] top-[40%]" />
           
@@ -211,7 +205,7 @@ const [ref, inView] = useInView()
         </div>
         </div>
         {/* kegiatan ketiga */}
-        <div className="relative w-[80vw] mx-auto flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center  lg:justify-between h-[65vh]">
+        <div className="relative w-[80%] mx-auto flex flex-col lg:flex-row space-y-8 items-start lg:items-center justify-center  lg:justify-between h-[65vh]">
         <Image alt="svg" src={svg1} width={100} height={100} className="absolute left-[50px] top-[40%]" />
           <motion.h1
           initial="offscreen"
@@ -231,7 +225,7 @@ const [ref, inView] = useInView()
       </div>
       
       {/* section 3 */}
-      <div className="w-[80vw] mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center mt-10">
+      <div className="w-full bg-gray-100 mx-auto min-h-screen lg:h-screen flex flex-col space-y-4 items-center">
         <h1 className="text-4xl font-extrabold text-gray-600">LATEST NEWS</h1>
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full h-[80%]">
           {dashboardPost.map(post => (
@@ -240,7 +234,7 @@ const [ref, inView] = useInView()
         </div>
       </div>
       {/* section 5 */}
-      <div className="relative w-full bg-[1c2d8c] bg-gradient-to-tr from-[#ff7f00] to-[#e9841e] py-10 my-10">
+      <div className="relative w-full bg-[1c2d8c] bg-gradient-to-tr from-[#ff7f00] to-[#e9841e] py-10">
         {/* svg 1 */}        
         <svg className="z-10 absolute right-5 top-7" width="67" height="77" viewBox="0 0 67 77" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M73.4999 6.53002C71.8799 6.53002 70.5599 5.21003 70.5599 3.59003C70.5599 1.97003 71.8799 0.650024 73.4999 0.650024C75.1199 0.650024 76.4399 1.97003 76.4399 3.59003C76.4399 5.22003 75.1199 6.53002 73.4999 6.53002ZM76.4399 21.18C76.4399 19.56 75.1199 18.24 73.4999 18.24C71.8799 18.24 70.5599 19.56 70.5599 21.18C70.5599 22.8 71.8799 24.12 73.4999 24.12C75.1199 24.12 76.4399 22.81 76.4399 21.18ZM76.4399 38.77C76.4399 37.15 75.1199 35.83 73.4999 35.83C71.8799 35.83 70.5599 37.15 70.5599 38.77C70.5599 40.39 71.8799 41.71 73.4999 41.71C75.1199 41.72 76.4399 40.4 76.4399 38.77ZM76.4399 56.37C76.4399 54.75 75.1199 53.43 73.4999 53.43C71.8799 53.43 70.5599 54.75 70.5599 56.37C70.5599 57.99 71.8799 59.31 73.4999 59.31C75.1199 59.31 76.4399 57.99 76.4399 56.37ZM76.4399 73.96C76.4399 72.34 75.1199 71.02 73.4999 71.02C71.8799 71.02 70.5599 72.34 70.5599 73.96C70.5599 75.58 71.8799 76.9 73.4999 76.9C75.1199 76.9 76.4399 75.58 76.4399 73.96ZM58.8499 3.59003C58.8499 1.97003 57.5299 0.650024 55.9099 0.650024C54.2899 0.650024 52.9699 1.97003 52.9699 3.59003C52.9699 5.21003 54.2899 6.53002 55.9099 6.53002C57.5299 6.53002 58.8499 5.22003 58.8499 3.59003ZM58.8499 21.18C58.8499 19.56 57.5299 18.24 55.9099 18.24C54.2899 18.24 52.9699 19.56 52.9699 21.18C52.9699 22.8 54.2899 24.12 55.9099 24.12C57.5299 24.12 58.8499 22.81 58.8499 21.18ZM58.8499 38.77C58.8499 37.15 57.5299 35.83 55.9099 35.83C54.2899 35.83 52.9699 37.15 52.9699 38.77C52.9699 40.39 54.2899 41.71 55.9099 41.71C57.5299 41.72 58.8499 40.4 58.8499 38.77ZM58.8499 56.37C58.8499 54.75 57.5299 53.43 55.9099 53.43C54.2899 53.43 52.9699 54.75 52.9699 56.37C52.9699 57.99 54.2899 59.31 55.9099 59.31C57.5299 59.31 58.8499 57.99 58.8499 56.37ZM58.8499 73.96C58.8499 72.34 57.5299 71.02 55.9099 71.02C54.2899 71.02 52.9699 72.34 52.9699 73.96C52.9699 75.58 54.2899 76.9 55.9099 76.9C57.5299 76.9 58.8499 75.58 58.8499 73.96ZM41.2499 3.59003C41.2499 1.97003 39.9299 0.650024 38.3099 0.650024C36.6899 0.650024 35.3699 1.97003 35.3699 3.59003C35.3699 5.21003 36.6899 6.53002 38.3099 6.53002C39.9399 6.53002 41.2499 5.22003 41.2499 3.59003ZM41.2499 21.18C41.2499 19.56 39.9299 18.24 38.3099 18.24C36.6899 18.24 35.3699 19.56 35.3699 21.18C35.3699 22.8 36.6899 24.12 38.3099 24.12C39.9399 24.12 41.2499 22.81 41.2499 21.18ZM41.2499 38.77C41.2499 37.15 39.9299 35.83 38.3099 35.83C36.6899 35.83 35.3699 37.15 35.3699 38.77C35.3699 40.39 36.6899 41.71 38.3099 41.71C39.9399 41.72 41.2499 40.4 41.2499 38.77ZM41.2499 56.37C41.2499 54.75 39.9299 53.43 38.3099 53.43C36.6899 53.43 35.3699 54.75 35.3699 56.37C35.3699 57.99 36.6899 59.31 38.3099 59.31C39.9399 59.31 41.2499 57.99 41.2499 56.37ZM41.2499 73.96C41.2499 72.34 39.9299 71.02 38.3099 71.02C36.6899 71.02 35.3699 72.34 35.3699 73.96C35.3699 75.58 36.6899 76.9 38.3099 76.9C39.9399 76.9 41.2499 75.58 41.2499 73.96ZM23.6599 3.59003C23.6599 1.97003 22.3399 0.650024 20.7199 0.650024C19.0999 0.650024 17.78 1.97003 17.78 3.59003C17.78 5.21003 19.0999 6.53002 20.7199 6.53002C22.3499 6.53002 23.6599 5.22003 23.6599 3.59003ZM23.6599 21.18C23.6599 19.56 22.3399 18.24 20.7199 18.24C19.0999 18.24 17.78 19.56 17.78 21.18C17.78 22.8 19.0999 24.12 20.7199 24.12C22.3499 24.12 23.6599 22.81 23.6599 21.18ZM23.6599 38.77C23.6599 37.15 22.3399 35.83 20.7199 35.83C19.0999 35.83 17.78 37.15 17.78 38.77C17.78 40.39 19.0999 41.71 20.7199 41.71C22.3499 41.72 23.6599 40.4 23.6599 38.77ZM23.6599 56.37C23.6599 54.75 22.3399 53.43 20.7199 53.43C19.0999 53.43 17.78 54.75 17.78 56.37C17.78 57.99 19.0999 59.31 20.7199 59.31C22.3499 59.31 23.6599 57.99 23.6599 56.37ZM23.6599 73.96C23.6599 72.34 22.3399 71.02 20.7199 71.02C19.0999 71.02 17.78 72.34 17.78 73.96C17.78 75.58 19.0999 76.9 20.7199 76.9C22.3499 76.9 23.6599 75.58 23.6599 73.96ZM6.06995 3.59003C6.06995 1.97003 4.74994 0.650024 3.12994 0.650024C1.50994 0.650024 0.189941 1.97003 0.189941 3.59003C0.189941 5.21003 1.50994 6.53002 3.12994 6.53002C4.74994 6.53002 6.06995 5.22003 6.06995 3.59003ZM6.06995 21.18C6.06995 19.56 4.74994 18.24 3.12994 18.24C1.50994 18.24 0.189941 19.56 0.189941 21.18C0.189941 22.8 1.50994 24.12 3.12994 24.12C4.74994 24.12 6.06995 22.81 6.06995 21.18ZM6.06995 38.77C6.06995 37.15 4.74994 35.83 3.12994 35.83C1.50994 35.83 0.189941 37.15 0.189941 38.77C0.189941 40.39 1.50994 41.71 3.12994 41.71C4.74994 41.71 6.06995 40.4 6.06995 38.77ZM6.06995 56.37C6.06995 54.75 4.74994 53.43 3.12994 53.43C1.50994 53.43 0.189941 54.75 0.189941 56.37C0.189941 57.99 1.50994 59.31 3.12994 59.31C4.74994 59.31 6.06995 57.99 6.06995 56.37ZM6.06995 73.96C6.06995 72.34 4.74994 71.02 3.12994 71.02C1.50994 71.02 0.189941 72.34 0.189941 73.96C0.189941 75.58 1.50994 76.9 3.12994 76.9C4.74994 76.9 6.06995 75.58 6.06995 73.96Z" fill="#244579"/>
@@ -286,23 +280,23 @@ const [ref, inView] = useInView()
         </div>
       </div>
       {/* section 4 */}
-      <div className="w-full flex flex-col items-center space-y-8 py-10">
+      <div className="w-full bg-gray-100 flex flex-col items-center space-y-8 py-10">
         <h1 className="text-4xl font-extrabold text-gray-600">GALERI</h1>
         <ImageGallery />
       </div>
       
       {/* section 6 */}
-      <div className="w-screen mt-0 lg:mt-[80px] bg-[#ff7f00] flex flex-col items-center space-x-6 space-y-9 py-6 justify-center">
+      <div className="w-full mt-0 bg-[#ff7f00] flex flex-col items-center space-y-9 py-6 justify-center">
           <h1 className="text-3xl font-semibold text-gray-100">Profile PERPENKA</h1>
-        <GetVideo url="https://youtu.be/73s0X8uiwbk" />
+            
+              <GetVideo url="https://youtu.be/73s0X8uiwbk" />
             <a href="/about" className="text-white bg-[#1c2d8c] px-8 py-3 rounded-3xl"> learn more</a>
       
       </div>
       {/*  */}
       {/* contact */}
-      <WhatsApp />
       {/* footer */}
-      <Footer />
+      {/* <Footer /> */}
     </motion.div>
   );
 }

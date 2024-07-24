@@ -6,5 +6,9 @@ type CounterProps = {
 }
 
 export default function GetVideo({url}: CounterProps) {
-  return <ReactPlayer width={640} url={url} />;
+  return (
+    <div className="scale-75 lg:scale-100 w-full mx-auto flex items-start justify-center">
+      <ReactPlayer width={580} url={url} />;
+    </div>
+  )
 }

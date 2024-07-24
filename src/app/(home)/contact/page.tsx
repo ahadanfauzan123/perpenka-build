@@ -1,7 +1,5 @@
 "use client"
 import React, {useState, ChangeEvent} from 'react'
-import Navbar from '../../../components/navbar'
-import Footer from '../../../components/footer';
 
 function Contact() {
       const [value, setValue] = useState<string>('');
@@ -10,9 +8,9 @@ function Contact() {
       setValue(event.target.value);
   };
   return (
-      <div className="bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600">
-            <Navbar isGray={true} />
-            <div className='w-[80vw] mx-auto flex flex-col space-y-12 mt-[110px] h-screen'>
+      <div className="bg-transparent w-[95%] lg:w-[80%] mx-auto pt-[120px] py-[40px] min-h-screen overflow-x-hidden text-gray-600">
+            {/* <Navbar isGray={true} /> */}
+            <div className='w-full px-4 py-[40px] bg-white rounded-2xl mx-auto flex flex-col space-y-12 h-screen'>
                   {/* heading */}
                   <div className='flex items-center space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
@@ -22,7 +20,7 @@ function Contact() {
                         <a href="https://forms.gle/5mg5h1UgGSP9xzgw5" className='cursor-pointer bg-gradient-to-tr from-blue-500 to-purple-700 hover:ring-2 hover:ring-gray-200 w-full h-full font-light text-2xl flex items-center justify-center text-white'>Daftar Sekarang</a>
                   </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
       </div>
   )
 }

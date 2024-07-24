@@ -27,7 +27,7 @@ function Navbar({isGray}: UseColorProps) {
     onClose: () => void;
   }
   
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   const [navbarHeight, setNavbarHeight] = useState(90); // Tinggi navbar awal
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   // Replace 'any' with appropriate types if possible
@@ -42,27 +42,26 @@ function Navbar({isGray}: UseColorProps) {
   const btnRef = React.useRef()
 
   const { scrollYProgress } = useScroll();
-
   
-  useEffect(() => {
-    const scrollHeader = () => {
-      if(window.scrollY >= 20) {
-        setShowNavbar(true)
-      } else {
-        setShowNavbar(false)
-      }
-    }
-    window.addEventListener('scroll', scrollHeader);
-    return () => {
-      window.removeEventListener('scroll', scrollHeader);
-    }
+  // useEffect(() => {
+  //   const scrollHeader = () => {
+  //     if(window.scrollY >= 20) {
+  //       setShowNavbar(true)
+  //     } else {
+  //       setShowNavbar(true)
+  //     }
+  //   }
+  //   window.addEventListener('scroll', scrollHeader);
+  //   return () => {
+  //     window.removeEventListener('scroll', scrollHeader);
+  //   }
 
-  }, []);
+  // }, []);
 
   return (
-    <motion.div  className={`  fixed w-full flex items-start flex-col z-40 ease-in-out`}>
-      <nav className={`${showNavbar===true? 'bg-white shadow-lg text-gray-600 h-[90px] ease-in duration-300' : isGray===true?'bg-transparent text-gray-600 text-lg h-[82px] ease-out duration-300' : 'bg-transparent text-white text-lg h-[82px] ease-out duration-300'} w-full px-10 flex items-center justify-between`}>
-          <div className="flex items-center justify-center space-x-3">
+    <div  className={`  fixed w-full flex items-start flex-col z-40`}>
+      <nav className={`${showNavbar===true? 'bg-white shadow-lg text-gray-600 h-[90px]' : ""} w-full px-10 flex items-center justify-between`}>
+          <div className="flex items-center justify-center space-x-3                                                                                                                                   ">
         <a href='/' className="text-xl font-bold h-12 w-12">
           <Image src={Lambang} alt="logo" className={`w-full h-full ${showNavbar===false ? 'opacity-50' : ''}`} />
         </a>
@@ -92,7 +91,7 @@ function Navbar({isGray}: UseColorProps) {
           whileHover={{ scale: 1.05 }}
           onHoverStart={e => {}}
           onHoverEnd={e => {}}
-          className='arrCon text-lg font-extralight text-white bg-blue-500 h-[48px] px-3 rounded-full w-[140px] flex items-center justify-center space-x-[1px]' href="./contact">
+          className='arrCon text-lg font-extralight text-white bg-blue-500 h-[48px] px-3 rounded-full w-[140px] flex items-center justify-center space-x-[1px]' href="/contact">
             <span>daftar</span>
             <IoIosArrowRoundForward className='text-4xl text-gray-200 arrow' />
           </motion.a>
@@ -124,7 +123,7 @@ function Navbar({isGray}: UseColorProps) {
                   <IoImagesOutline className='text-lg' />
                   <h3 className="text-md flex-1">galeri</h3>
                 </a>
-                <a className='arrCon text-md font-extralight text-white translate-y-6 bg-blue-500 h-[46px] px-3 rounded-full w-full flex items-center justify-center space-x-[1px]' href="./contact">
+                <a className='arrCon text-md font-extralight text-white translate-y-6 bg-blue-500 h-[46px] px-3 rounded-full w-full flex items-center justify-center space-x-[1px]' href="/contact">
                   <span>daftar keanggotaan</span>
                   <IoIosArrowRoundForward className='text-4xl text-gray-200 arrow' />
                 </a> 
@@ -142,8 +141,8 @@ function Navbar({isGray}: UseColorProps) {
         )}
       
       </nav>
-      <motion.div className='z-40 h-2 rounded-r bg-gradient-to-r from-[#1c2d8c] to-[#122383] w-screen origin-left' style={{ scaleX: scrollYProgress }} />
-    </motion.div>
+      {/* <motion.div className='z-40 h-2 rounded-r bg-gradient-to-r from-[#1c2d8c] to-[#122383] w-screen origin-left' style={{ scaleX: scrollYProgress }} /> */}
+    </div>
   )
 }
 

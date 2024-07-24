@@ -1,24 +1,20 @@
 "use client"
 import React, { useContext, useRef, useState } from 'react';
-import logoBaru from "../../../public/img/logoBaru.jpg"
+import logoBaru from "../../../../public/img/logoBaru.jpg"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import Image from 'next/image';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import Logo from "../../../public/img/logo.jpg";
-import Dpp from "../../../public/img/pengurus/dppF.jpg";
-import Lambang from "../../../public/img/logofix.png";
+import Lambang from "../../../../public/img/logofix.png";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
         
-import Navbar from '../../../components/navbar'
-import Footer from '../../../components/footer';
-import { NewsContext } from '../../../context/NewsContext';
+import { NewsContext } from '../../../../context/NewsContext';
 
 
 SwiperCore.use([Thumbs]);
@@ -31,10 +27,10 @@ export default function About() {
 
       
   return (
-      <div className="bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600">
-            <Navbar isGray={true} />
-            <div className='w-full mx-auto flex flex-col space-y-12 mt-[110px]'>
-                <div className='w-[80vw] mx-auto flex flex-col space-y-12'>
+      <div className="bg-transparent w-[95%] lg:w-[80%] mx-auto pt-[120px] min-h-screen overflow-x-hidden text-gray-600">
+            {/* <Navbar isGray={true} /> */}
+            <div className='bg-white rounded-2xl w-full mx-auto flex flex-col space-y-12 pt-[40px]'>
+                <div className='w-[80%] mx-auto flex flex-col space-y-12'>
                   {/* heading */}
                   <div className='flex items-center space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
@@ -45,7 +41,7 @@ export default function About() {
                   {/* body */}
                   <div className='w-full flex flex-col space-y-10'>
 
-                    <div className=' w-[80vw] mx-auto flex flex-col space-y-12 '>
+                    <div className=' w-[80%] mx-auto flex flex-col space-y-12 '>
                         {/* sejarah */}
                         <div className='w-full flex flex-col space-y-3'>
                               <div className='flex items-center space-x-3 bg-gray-200 sm:w-full lg:w-[300px]'>
@@ -92,7 +88,7 @@ export default function About() {
                     {/* lambang dan logo */}
                     <div className="w-full flex flex-col">
                         {/* arti lambang */}
-                        <div className="w-screen min-h-screen bg-gradient-to-tr flex flex-col space-y-6 py-10 from-orange-400 to-orange-500 ">
+                        <div className="w-full min-h-screen bg-gradient-to-tr flex flex-col space-y-6 py-10 from-orange-400 to-orange-500 ">
                             <div className='w-[80%] mx-auto flex items-center justify-between space-y-3'>
                                 <Image alt="lambang" src={Lambang} width={250} height={250}  className='w-[240px] h-[240px]' />
                                 <div className='flex items-center space-x-3 bg-gray-300 bg-opacity-65 sm:w-full lg:max-w-[300px]'>
@@ -520,7 +516,7 @@ export default function About() {
                         </div>
                         </div>
                   </div>
-                  <Footer />
+                  {/* <Footer /> */}
             </div>
   )
 }

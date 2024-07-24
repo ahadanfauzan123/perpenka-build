@@ -1,13 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../../firebase';
-import Navbar from '../../../../components/navbar';
-import Footer from '../../../../components/footer';
-import GetVideo from '../../../../components/play';
+import { db } from '../../../../../firebase';
+import GetVideo from '../../../../../components/play';
 import Image from 'next/image';
-import Banner from "../../../../public/img/banner3.jpg"
-import Profile from "../../../../public/img/logofix.png"
+// import Banner from "../../../../../public/img/banner3.jpg"
+import Profile from "../../../../../public/img/logofix.png"
 
 interface ArticleData {
     id: string;
@@ -66,16 +64,16 @@ function Read({ params }: { params: { newsId: string } }) {
     }, [params.newsId]);
 
     return (
-      <div className="bg-gray-200 w-screen min-h-screen overflow-x-hidden text-gray-600">
-      <Navbar isGray={true} />
+      <div className="bg-transparent pt-[120px] w-[95%] lg:w-[80%] mx-auto min-h-screen overflow-x-hidden text-gray-600">
+      {/* <Navbar isGray={true} /> */}
       {articleData && (
-      <div key={articleData.id} className=' min-h-screen w-full mx-auto flex flex-col items-center'>
-        <div className="bg-gray-400 w-screen h-[450px]">
-            <Image alt="banner" src={articleData.data.bannerImage} width={400} height={400} className="w-full h-full object-cover" />
+      <div key={articleData.id} className=' min-h-screen bg-white rounded-2xl w-full mx-auto flex flex-col items-center'>
+        <div className="bg-gray-400 w-full h-fit rounded-t-2xl">
+            <Image alt="banner" src={articleData.data.bannerImage} width={400} height={400} className="w-full h-full object-contain rounded-t-2xl" />
         </div>
         {/* title */}
         <div className='w-full py-4 bg-white'>
-        <div className='flex flex-col space-y-2 w-[80vw] mx-auto'>
+        <div className='flex flex-col space-y-2 w-[80%] mx-auto'>
             {/* date */}
             <h3 className='text-sm font-light text-gray-500'>{tanggal}</h3>
             {/* title */}
@@ -106,7 +104,7 @@ function Read({ params }: { params: { newsId: string } }) {
       </div>
       )}
 
-<Footer />  
+{/* <Footer />   */}
 </div>
     );
 }

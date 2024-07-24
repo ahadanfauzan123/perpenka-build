@@ -1,17 +1,15 @@
 "use client"
 import React, { useContext } from 'react'
-import Navbar from '../../../components/navbar'
-import NewsCard from '../../../components/newsCard'
-import Footer from '../../../components/footer'
-import { NewsContext } from '../../../context/NewsContext'
+import NewsCard from '../../../../components/newsCard'
+import { NewsContext } from '../../../../context/NewsContext'
 
 function GetNews() {
       const {posts} = useContext(NewsContext)
       
-  return (
-      <div className="bg-gray-100 w-screen min-h-screen overflow-x-hidden text-gray-600">
-            <Navbar isGray={true} />
-            <div className='w-[80vw] mx-auto flex flex-col space-y-12 mt-[110px]'>
+return (
+      <div className="bg-transparent w-[95%] lg:w-[80%] mx-auto min-h-screen overflow-x-hidden text-gray-600">
+            {/* <Navbar isGray={true} /> */}
+            <div className='w-full py-[40px] px-4 bg-white rounded-2xl mx-auto flex flex-col space-y-12 mt-[110px]'>
                   {/* heading */}
                   <div className='flex items-center space-x-3'>
                         <div className='w-1 h-[40px] rounded bg-blue-400'></div>
@@ -24,7 +22,7 @@ function GetNews() {
                         ))}
                   </div>
             </div>
-            <Footer  />
+            {/* <Footer  /> */}
       </div>
   )
 }
